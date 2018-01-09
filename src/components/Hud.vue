@@ -1,11 +1,11 @@
 <template>
     <div class='columns col-online'>
-      <div title="Cell Voltage" class='column col-1'>{{this.$store.state.cellVoltage | exponentialize}} V</div>
-      <div title="AmpHour Capacity" class='column col-1'>{{this.$store.state.ampHourCapacity | exponentialize}} mAh</div>
+      <div title="Cell Voltage" class='column col-2'>{{this.$store.state.cellVoltage | exponentialize}} V</div>
+      <div title="AmpHour Capacity" class='column col-2'>{{this.$store.state.ampHourCapacity | exponentialize}} mAh</div>
       <div title="Charge Capacity" class='column col-2'>{{this.$store.state.coulombs}}/{{capacity | exponentialize}} Coulombs</div>
       <div title="Energy" class='column col-2'>{{joules | exponentialize}} Joules</div>
-      <div title="Mass of spaceship" class='column col-1'>{{this.$store.state.mass | exponentialize}} kg</div>
-      <div title="Approximate jump distance" class='column col-1'>{{distance | exponentialize}} m</div>
+      <div title="Mass of spaceship" class='column col-2'>{{this.$store.state.mass | exponentialize}} kg</div>
+      <div title="Approximate jump distance" class='column col-2'>{{distance | exponentialize}} m</div>
     </div>
 </template>
 

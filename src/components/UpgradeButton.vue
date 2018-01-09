@@ -10,6 +10,8 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex'
 export default {
   name: 'UpgradeButton',
   props: {
@@ -18,6 +20,9 @@ export default {
       required: true
     }
   },
+  methods: mapActions([
+    'buyUpgrade'
+  ]),
   filters: {
     exponentialize: function (value) {
       var digits = 4

@@ -1,29 +1,22 @@
 <template>
     <div class="columns upgradepanel">
       <div class="column col-12">
+        <span class="text-bold text-large">Generator Upgrades</span>
         <ul class="upgrades">
             <li v-for="upgrade in generatorUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuy(upgrade.id)}">
                 <UpgradeButton v-bind:upgrade="upgrade" />
             </li>
         </ul>
+        <span class="text-bold text-large">Capacity Upgrades</span>
         <ul class="upgrades">
             <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuy(upgrade.id)}">
-                <div class="columns" v-on:click="buyUpgrade(upgrade.id)">
-                    <div class="column col-12 text-bold">{{upgrade.name}}</div>
-                    <div class="column col-12">{{(upgrade.baseCost * Math.pow(1.15, upgrade.upgCount)) | exponentialize}}</div>
-                    <div class="column col-6">{{upgrade.baseProd * upgrade.upgCount | exponentialize}}</div>
-                    <div class="column col-6 col-ml-auto text-left">{{upgrade.upgCount}}</div>
-                </div>
+                <UpgradeButton v-bind:upgrade="upgrade" />
             </li>
         </ul>
+        <span class="text-bold text-large">Hull Upgrades</span>
         <ul class="upgrades">
             <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuy(upgrade.id)}">
-                <div class="columns" v-on:click="buyUpgrade(upgrade.id)">
-                    <div class="column col-12 text-bold">{{upgrade.name}}</div>
-                    <div class="column col-12">{{(upgrade.baseCost * Math.pow(1.15, upgrade.upgCount)) | exponentialize}}</div>
-                    <div class="column col-6">{{upgrade.baseProd * upgrade.upgCount | exponentialize}}</div>
-                    <div class="column col-6 col-ml-auto text-left">{{upgrade.upgCount}}</div>
-                </div>
+                <UpgradeButton v-bind:upgrade="upgrade" />
             </li>
         </ul>
       </div>
@@ -32,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import UpgradeButton from './UpgradeButton'
 export default {
   name: 'ShipUpgradePanel',
@@ -60,9 +53,6 @@ export default {
     'stardust'
   ]),
   methods: {
-    ...mapActions([
-      'buyUpgrade'
-    ]),
     canBuy: function (id) {
       var upg = this.generatorUpgrades.filter(u => u.id === id)[0]
       return (upg.baseCost * Math.pow(1.15, upg.upgCount)) < this.stardust
@@ -75,7 +65,10 @@ export default {
 <style scoped>
 ul {
   margin: 0;
-  padding: 0;
+  margin-bottom: 8%;
+  padding: 4px;
+  background-color: rgb(168, 168, 168);
+  border-radius: 3px;
 }
 li {
         list-style: none;
@@ -86,12 +79,13 @@ li {
         padding: 2px 4px;
     }
     .canBuy li:hover {
-        background-color: rgba(95, 160, 98, 0.815);
+        background-color: rgba(73, 73, 73, 0.815);
     }
     .canBuy {
-        background-color: rgb(95, 160, 98);
+        background-color: rgb(83, 83, 83);
     }
     .upgradepanel {
         font-size: 0.6rem;
+        margin-top: 10%;
     }
 </style>
