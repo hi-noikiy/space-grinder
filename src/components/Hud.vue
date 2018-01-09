@@ -1,6 +1,6 @@
 <template>
     <div class='columns'>
-      <div title='Distance' class='column col-1'>{{this.$store.state.distance | exponentialize}} m</div>
+      <div title='Distance you can travel on next jump' class='column col-1'>{{this.$store.state.distance | exponentialize}} m</div>
       <div title='Speed' class='column col-1'>{{speed | exponentialize}} m/s</div>
       <div title='Mass' class='column col-1'>{{this.$store.state.mass | exponentialize}} Kg</div>
       <div title='Ampere' class='column col-1'>{{this.$store.state.amps | exponentialize}} MA</div>

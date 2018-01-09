@@ -94,7 +94,6 @@ const getters = {
   watts: state => (state.amps / 1000) * state.volts,
   upgrades: state => state.upgrades,
   stardust: state => state.stardust,
-  // ampsPerSecond: state => state.upgrades.reduce((a, upg) => ({sum: a.sum + (upg.baseProd * upg.upgCount)}))
   ampsPerSecond: state => state.upgrades.reduce((a, b) => a + (b.baseProd * b.upgCount), 0)
 }
 
