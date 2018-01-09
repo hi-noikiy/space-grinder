@@ -5,54 +5,56 @@ Vue.use(Vuex)
 
 const state = {
   distance: 0,
-  amps: 5000,
-  volts: 12,
+  cellVoltage: 2,
+  cvMultiplier: 0,
+  ampHourCapacity: 2,
+  ahcMultiplier: 0,
+  coulombs: 0,
   mass: 200000,
-  stardust: 100000,
-  upgrades: [
-    {id: 1, name: 'Extra Capacitors', baseCost: 10, upgCount: 0, baseProd: 2},
-    {id: 2, name: 'Solar Panels', baseCost: 125, upgCount: 0, baseProd: 6},
-    {id: 3, name: 'Batteries', baseCost: 600, upgCount: 0, baseProd: 20},
-    {id: 4, name: 'Improved Wires', baseCost: 1800, upgCount: 0, baseProd: 65},
-    {id: 5, name: 'Improved Capacitors', baseCost: 5600, upgCount: 0, baseProd: 200},
-    {id: 6, name: 'Cooling Modules', baseCost: 38000, upgCount: 0, baseProd: 650},
-    {id: 7, name: 'Carbon Fiber Platings', baseCost: 442000, upgCount: 0, baseProd: 2000},
-    {id: 8, name: 'Temperature Controllers', baseCost: 7300000, upgCount: 0, baseProd: 8500},
-    {id: 9, name: 'Guidance Modules', baseCost: 145000000, upgCount: 0, baseProd: 100000},
-    {id: 10, name: 'Fiber Optics', baseCost: 3200000000, upgCount: 0, baseProd: 1200000},
-    {id: 11, name: 'Annoying People', baseCost: 200000000000, upgCount: 0, baseProd: 2500000}
+  minerals: 100000,
+  generatorUpgrades: [
+    {id: 1, name: 'gen upg 1', baseCost: 10, upgCount: 0, baseProd: 2},
+    {id: 2, name: 'gen upg 2', baseCost: 125, upgCount: 0, baseProd: 6},
+    {id: 3, name: 'gen upg 3', baseCost: 600, upgCount: 0, baseProd: 20},
+    {id: 4, name: 'gen upg 4', baseCost: 1800, upgCount: 0, baseProd: 65}
+  ],
+  storageUpgrades: [
+    {id: 1, name: 'stor upg 1', baseCost: 10 * 10, upgCount: 0, voltIncrease: 2, ampIncrease: 2},
+    {id: 2, name: 'stor upg 2', baseCost: 125 * 10, upgCount: 0, voltIncrease: 6, ampIncrease: 6},
+    {id: 3, name: 'stor upg 3', baseCost: 600 * 10, upgCount: 0, voltIncrease: 20, ampIncrease: 20},
+    {id: 4, name: 'stor upg 4', baseCost: 1800 * 10, upgCount: 0, voltIncrease: 65, ampIncrease: 65}
+  ],
+  hullUpgrades: [
+    {id: 1, name: 'hull upg 1', baseCost: 10 * 100, upgCount: 0, massReduction: 20},
+    {id: 2, name: 'hull upg 2', baseCost: 125 * 100, upgCount: 0, massReduction: 60},
+    {id: 3, name: 'hull upg 3', baseCost: 600 * 100, upgCount: 0, massReduction: 200},
+    {id: 4, name: 'hull upg 4', baseCost: 1800 * 100, upgCount: 0, massReduction: 650}
   ]
 }
 
+var addCoulombs = function (state, amount) {
+  if (state.coulombs + amount < state.ampHourCapacity * 3600) {
+    state.coulombs += amount
+  } else { state.columbs = state.ampHourCapacity * 3600 }
+
+  if (state.coulombs > 500) {
+    state.minerals += (amount / 4)
+  }
+}
+
 const mutations = {
-  incrementDistance (state, {amount}) {
-    state.distance += amount
+  incrementCoulombs (state, {amount}) {
+    state.generatorUpgrades.map(u => { amount += u.baseProd * u.upgCount })
+    addCoulombs(state, amount)
   },
-  decrementDistance (state, {amount}) {
-    state.distance -= amount
-  },
-  incrementAmps (state, {amount}) {
-    state.upgrades.map(u => { amount += u.baseProd * u.upgCount })
-    state.amps += amount
-    if (state.apms > 500) {
-      console.log(amount)
-      state.stardust += (amount / 4)
-    }
-  },
-  incrementAmpsClick (state, {amount}) {
-    state.amps += amount
-    if (state.apms > 500) {
-      state.stardust += (amount / 4)
-    }
-  },
-  decrementAmps (state, {amount}) {
-    state.amps -= amount
+  incrementCoulombsClick (state, {amount}) {
+    addCoulombs(state, amount)
   },
   incrementVolts (state, {amount}) {
-    state.volts += amount
+    state.cellVoltage += amount
   },
-  decrementVolts (state, {amount}) {
-    state.volts -= amount
+  incrementAmps (state, {amount}) {
+    state.ampHourCapacity += amount
   },
   incrementMass (state, {amount}) {
     state.mass += amount
@@ -60,16 +62,35 @@ const mutations = {
   decrementMass (state, {amount}) {
     state.mass -= amount
   },
-  incrementStarDust (state, {amount}) {
-    state.stardust += amount
+  incrementMinerals (state, {amount}) {
+    state.minerals += amount
   },
-  decrementStarDust (state, {amount}) {
-    state.stardust -= amount
+  decrementMinerals (state, {amount}) {
+    state.minerals -= amount
   },
-  buyUpgrade (state, {id}) {
-    state.upgrades.map((upg) => {
-      if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.stardust) {
-        state.stardust -= upg.baseCost * Math.pow(1.15, upg.upgCount)
+  buyGeneratorUpgrades (state, {id}) {
+    console.log('buyGeneratorUpgrades')
+    state.generatorUpgrades.map((upg) => {
+      if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
+        state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
+        upg.upgCount++
+      }
+    })
+  },
+  buyStorageUpgrades (state, {id}) {
+    console.log('buyStorageUpgrades')
+    state.storageUpgrades.map((upg) => {
+      if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
+        state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
+        upg.upgCount++
+      }
+    })
+  },
+  buyHullUpgrades (state, {id}) {
+    console.log('buyHullUpgrades')
+    state.hullUpgrades.map((upg) => {
+      if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
+        state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
         upg.upgCount++
       }
     })
@@ -77,24 +98,36 @@ const mutations = {
 }
 
 const actions = {
-  incrementDistance: ({ commit }, amount) => commit('incrementDistance', {amount: amount}),
-  decrementDistance: ({ commit }, amount) => commit('decrementDistance', {amount: amount}),
-  incrementAmps: ({ commit }, amount) => commit('incrementAmps', {amount: amount}),
-  incrementAmpsClick: ({ commit }, amount) => commit('incrementAmpsClick', {amount: amount}),
-  decrementAmps: ({ commit }, amount) => commit('decrementAmps', {amount: amount}),
+  incrementCoulombs: ({ commit }, amount) => commit('incrementCoulombs', {amount: amount}),
+  incrementCoulombsClick: ({ commit }, amount) => commit('incrementCoulombsClick', {amount: amount}),
   incrementVolts: ({ commit }, amount) => commit('incrementVolts', {amount: amount}),
-  decrementVolts: ({ commit }, amount) => commit('decrementVolts', {amount: amount}),
   incrementMass: ({ commit }, amount) => commit('incrementMass', {amount: amount}),
   decrementMass: ({ commit }, amount) => commit('decrementMass', {amount: amount}),
-  buyUpgrade: ({ commit }, id) => commit('buyUpgrade', {id: id})
+  buyGeneratorUpgrades: ({ commit }, id) => commit('buyGeneratorUpgrades', {id: id}),
+  buyStorageUpgrades: ({ commit }, id) => commit('buyStorageUpgrades', {id: id}),
+  buyHullUpgrades: ({ commit }, id) => commit('buyHullUpgrades', {id: id})
 }
 
 const getters = {
-  speed: state => Math.sqrt((2 * ((state.amps / 1000) * state.volts)) / state.mass),
-  watts: state => (state.amps / 1000) * state.volts,
-  upgrades: state => state.upgrades,
-  stardust: state => state.stardust,
-  ampsPerSecond: state => state.upgrades.reduce((a, b) => a + (b.baseProd * b.upgCount), 0)
+  generatorUpgrades: state => state.generatorUpgrades,
+  storageUpgrades: state => state.storageUpgrades,
+  hullUpgrades: state => state.hullUpgrades,
+  minerals: state => state.minerals,
+  capacity: state => state.ampHourCapacity * 3600,
+  joules: state => state.cellVoltage * state.coulombs,
+  distance: state => Math.tanh((state.cellVoltage * state.coulombs) / state.mass),
+  voltage: state => {
+    state.storageUpgrades.map(u => { state.cellVoltage += u.voltIncrease * u.upgCount })
+    return state.cellVoltage
+  },
+  amps: state => {
+    state.storageUpgrades.map(u => { state.ampHourCapacity += u.ampIncrease * u.upgCount })
+    return state.ampHourCapacity
+  },
+  mass: state => {
+    state.hullUpgrades.map(u => { state.mass -= u.massReduction * u.upgCount })
+    return state.mass
+  }
 }
 
 export default new Vuex.Store({
