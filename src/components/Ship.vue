@@ -1,8 +1,21 @@
 <template>
   <div id="main-window" class="container" v-on:click="screenClick">
-    <div class="column col-12">{{ship_name}}</div>
-    <Hud/>
-    <ShipUpgradePanel/>
+    <div class="columns">
+      <div class="column col-12">
+        <Hud/>
+      </div>
+
+
+    <div class="column col-12 columns">
+      <div class="column col-2">
+      <ShipUpgradePanel/>
+    </div>
+    <div class="column col-8">
+    </div>
+    <div class="column col-2"></div>
+    </div>
+    <div class="column col-12"></div>
+  </div>
   </div>
 </template>
 
@@ -30,11 +43,11 @@ export default {
   computed: mapGetters(['speed']),
   methods: {
     ...mapActions([
-      'incrementAmps',
-      'incrementAmpsClick'
+      'incrementCoulombs',
+      'incrementCoulombsClick'
     ]),
     screenClick: function () {
-      if (this.screenClicks++ < 30) { this.incrementAmpsClick(1) }
+      if (this.screenClicks++ < 30) { this.incrementCoulombsClick(1) }
     },
     timestamp: function () {
       return window.performance && window.performance.now ? window.performance.now() : new Date().getTime()
@@ -50,7 +63,7 @@ export default {
       }.bind(this), 1000 / this.updateFrequence)
     },
     update: function (duration) {
-      this.incrementAmps(0)
+      this.incrementCoulombs(0)
     }
   },
   created: function () {
@@ -67,5 +80,14 @@ export default {
 #main-window {
     height: 100%;
     width: 100%;
+}
+body {
+  margin:0;
+}
+canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #111a22;
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
-    <div class='columns'>
-      <div title='Distance' class='column col-1'>{{this.$store.state.distance | exponentialize}} m</div>
-      <div title='Speed' class='column col-1'>{{speed | exponentialize}} m/s</div>
-      <div title='Mass' class='column col-1'>{{this.$store.state.mass | exponentialize}} Kg</div>
-      <div title='Ampere' class='column col-1'>{{this.$store.state.amps | exponentialize}} MA</div>
-      <div title='Ampere per second' class='column col-2'>{{ampsPerSecond | exponentialize}} MA/s</div>
-      <div title='Volts' class='column col-1'>{{this.$store.state.volts | exponentialize}} V</div>
-      <div title='Watts' class='column col-1'>{{watts | exponentialize}} W</div>
-      <div title='Stardust' class='column col-1'>{{stardust | exponentialize}} g</div>
+    <div class='columns col-online'>
+      <div title="Cell Voltage" class='column col-1'>{{this.$store.state.cellVoltage | exponentialize}} V</div>
+      <div title="AmpHour Capacity" class='column col-1'>{{this.$store.state.ampHourCapacity | exponentialize}} mAh</div>
+      <div title="Charge Capacity" class='column col-2'>{{this.$store.state.coulombs}}/{{capacity | exponentialize}} Coulombs</div>
+      <div title="Energy" class='column col-2'>{{joules | exponentialize}} Joules</div>
+      <div title="Mass of spaceship" class='column col-1'>{{this.$store.state.mass | exponentialize}} kg</div>
+      <div title="Approximate jump distance" class='column col-1'>{{distance | exponentialize}} m</div>
     </div>
 </template>
 
@@ -29,15 +27,17 @@ export default {
     }
   },
   computed: mapGetters([
-    'speed',
-    'watts',
     'stardust',
-    'ampsPerSecond'
+    'joules',
+    'capacity',
+    'joules',
+    'distance'
   ])
 }
 </script>
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
-
+ div {
+ }
 </style>
