@@ -17,6 +17,8 @@ export default {
 
 <style>
 html, body, #app {
+    background: #24292E;
+    color: #7D858C;
     height: 100%;
     width: 100%;
     -webkit-touch-callout: none;
