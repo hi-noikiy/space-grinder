@@ -76,3 +76,18 @@ li {
         border: $border;
         border-radius: $borderRadius;
     }
+
+.crew-select {
+  width: calc(100% / 3);
+  height: 100px;
+  position: absolute;
+  bottom: -100px;
+  border: $border;
+  background-color: $backgroundColorAccent;
+  border-radius: $borderRadius;
+}
+
+.crew-avatar {
+  margin-left: auto;
+  margin-right: auto;
+}

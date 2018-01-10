@@ -18,23 +18,7 @@
       <div class="columns">
       <div class="column col-4"></div>
       <div class="column col-4">
-        <div class="columns">
-        <figure class="avatar avatar-xl mx-1">
-           <img src="../assets/images/head.png" alt="...">
-         </figure>
-        <figure class="avatar avatar-xl mx-1">
-           <img src="../assets/images/head.png" alt="...">
-         </figure>
-        <figure class="avatar avatar-xl mx-1">
-           <img src="../assets/images/head.png" alt="...">
-         </figure>
-        <figure class="avatar avatar-xl mx-1">
-           <img src="../assets/images/head.png" alt="...">
-         </figure>
-        <figure class="avatar avatar-xl mx-1">
-           <img src="../assets/images/head.png" alt="...">
-         </figure>
-        </div>
+        <CrewPanel />
       </div>
       <div class="column col-4"></div>
       </div>
@@ -46,6 +30,7 @@
 <script>
 import Hud from './Hud'
 import ShipUpgradePanel from './ShipUpgradePanel'
+import CrewPanel from './CrewPanel'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -62,7 +47,8 @@ export default {
   },
   components: {
     Hud,
-    ShipUpgradePanel
+    ShipUpgradePanel,
+    CrewPanel
   },
   computed: mapGetters(['speed']),
   methods: {

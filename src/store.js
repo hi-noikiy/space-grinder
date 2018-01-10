@@ -12,6 +12,13 @@ const state = {
   coulombs: 0,
   mass: 200000,
   minerals: 100000,
+  crew: [
+    {id: 0, image: './assets/images/head.png'},
+    {id: 1, image: '../assets/images/head2.png'},
+    {id: 2, image: '../assets/images/head.png'},
+    {id: 3, image: '../assets/images/head.png'},
+    {id: 4, image: '../assets/images/head.png'}
+  ],
   generatorUpgrades: [
     {id: 1, name: 'gen upg 1', baseCost: 10, upgCount: 0, baseProd: 2},
     {id: 2, name: 'gen upg 2', baseCost: 125, upgCount: 0, baseProd: 6},
@@ -127,7 +134,8 @@ const getters = {
   mass: state => {
     state.hullUpgrades.map(u => { state.mass -= u.massReduction * u.upgCount })
     return state.mass
-  }
+  },
+  crew: state => state.crew
 }
 
 export default new Vuex.Store({
