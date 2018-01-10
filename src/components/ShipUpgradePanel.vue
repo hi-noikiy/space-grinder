@@ -76,37 +76,5 @@ export default {
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
-.heading {
-    background: none;
-    margin-top: 0;
-    border: 0;
-    
-   color:rgb(63, 63, 63);
-}
-ul {
-  margin: 0;
-  margin-bottom: 8%;
-  padding: 4px;
-  background-color: rgb(235, 235, 235);
-  border-radius: 3px;
-}
-li {
-        list-style: none;
-        background-color: rgb(39, 39, 39);
-        color:rgb(141, 141, 141);
-        border: 1px solid gray;
-        border-radius: 3px;
-        padding: 2px 4px;
-    }
-    .canBuy:hover {
-        background-color: rgba(77, 77, 77, 0.815);
-    }
-    .canBuy {
-        background-color: rgb(83, 83, 83);
-        color:rgb(235, 235, 235);
-    }
-    .upgradepanel {
-        font-size: 0.6rem;
-        margin-top: 10%;
-    }
+
 </style>

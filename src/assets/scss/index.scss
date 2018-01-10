@@ -1,0 +1,78 @@
+$backgroundColor: #24292E;
+$backgroundColorAccent: rgb(235, 235, 235);
+$color: #7D858C;
+$colorAccent: rgb(63, 63, 63);
+$border: 1px solid gray;
+$borderRadius: 3px;
+
+html, body, #app {
+    background: $backgroundColor;
+    color: $color;
+    height: 100%;
+    width: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin:0;
+}
+
+.hud {
+    border: $border;
+    background-color: $backgroundColorAccent;
+    padding: 4px;
+    color:$colorAccent;
+  }
+
+  .heading {
+    background: none;
+    margin-top: 0;
+    border: 0;
+   color:$colorAccent;
+}
+ul {
+  margin: 0;
+  margin-bottom: 8%;
+  padding: 4px;
+  background-color: $backgroundColorAccent;
+  border-radius: $borderRadius;
+}
+li {
+    list-style: none;
+    background-color: $backgroundColor;
+    color:$color;
+    border: $border;
+    border-radius: $borderRadius;
+    padding: 2px 4px;
+}
+.canBuy:hover {
+    background-color: lighten($backgroundColor, 15%);
+}
+.canBuy {
+    background-color: lighten($backgroundColor, 10%);
+    color:lighten($color, 30%);
+}
+.upgradepanel {
+    font-size: 0.6rem;
+    margin-top: 10%;
+}
+#main-window {
+    height: 100%;
+    width: 100%;
+}
+
+.portrait-list  li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+.portrait{
+        margin: 2px;
+        height: 72px;
+        width: 72px;
+        background: $backgroundColorAccent;
+        border: $border;
+        border-radius: $borderRadius;
+    }

@@ -14,7 +14,31 @@
     </div>
     <div class="column col-2"></div>
     </div>
-    <div class="column col-12"></div>
+    <div class="column col-12">
+      <div class="columns">
+      <div class="column col-4"></div>
+      <div class="column col-4">
+        <div class="columns">
+        <figure class="avatar avatar-xl mx-1">
+           <img src="../assets/images/head.png" alt="...">
+         </figure>
+        <figure class="avatar avatar-xl mx-1">
+           <img src="../assets/images/head.png" alt="...">
+         </figure>
+        <figure class="avatar avatar-xl mx-1">
+           <img src="../assets/images/head.png" alt="...">
+         </figure>
+        <figure class="avatar avatar-xl mx-1">
+           <img src="../assets/images/head.png" alt="...">
+         </figure>
+        <figure class="avatar avatar-xl mx-1">
+           <img src="../assets/images/head.png" alt="...">
+         </figure>
+        </div>
+      </div>
+      <div class="column col-4"></div>
+      </div>
+    </div>
   </div>
   </div>
 </template>
@@ -76,18 +100,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-#main-window {
-    height: 100%;
-    width: 100%;
-}
-body {
-  margin:0;
-}
-canvas {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: #111a22;
-}
+<style>
+
+
 </style>

@@ -16,16 +16,5 @@ export default {
 </script>
 
 <style>
-html, body, #app {
-    background: #24292E;
-    color: #7D858C;
-    height: 100%;
-    width: 100%;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+
 </style>
