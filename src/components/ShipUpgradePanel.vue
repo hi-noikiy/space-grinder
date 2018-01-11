@@ -7,14 +7,14 @@
                 <UpgradeButton v-bind:upgrade="upgrade" />
             </li>
         </ul>
-        
+
         <ul class="upgrades">
             <li class="heading"><span class="text-bold text-large">Capacity Upgrades</span></li>
             <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyStorageUpg(upgrade.id)}" v-on:click="buyStorageUpgrades(upgrade.id)">
                 <UpgradeButton v-bind:upgrade="upgrade" />
             </li>
         </ul>
-        
+
         <ul class="upgrades">
             <li class="heading"><span class="text-bold text-large">Hull Upgrades</span></li>
             <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyHullUpg(upgrade.id)}" v-on:click="buyHullUpgrades(upgrade.id)">
@@ -56,7 +56,13 @@ export default {
     ...mapActions([
       'buyGeneratorUpgrades',
       'buyStorageUpgrades',
-      'buyHullUpgrades'
+      'buyHullUpgrades',
+      'incrementCoulombs',
+      'incrementCoulombsClick',
+      'setVolts',
+      'setAmps',
+      'incrementMass',
+      'decrementMass'
     ]),
     canBuyGeneratorUpg: function (id) {
       var upg = this.generatorUpgrades.filter(u => u.id === id)[0]
