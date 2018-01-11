@@ -13,18 +13,18 @@ const state = {
   mass: 200000,
   minerals: 100000,
   crew: [
-    {id: 10, image: 'def'},
-    {id: 11, image: 'def'},
-    {id: 12, image: 'def'},
-    {id: 13, image: 'def'},
-    {id: 14, image: 'def'}
+    {id: 10, image: 'def', desc: 'select a crewmember', name: 'Select member'},
+    {id: 11, image: 'def', desc: 'select a crewmember, unlocks at ?', name: 'Select member'},
+    {id: 12, image: 'def', desc: 'select a crewmember, unlocks at ?', name: 'Select member'},
+    {id: 13, image: 'def', desc: 'select a crewmember, unlocks at ?', name: 'Select member'},
+    {id: 14, image: 'def', desc: 'select a crewmember, unlocks at ?', name: 'Select member'}
   ],
   availableCrew: [
-    {id: 20, image: 'av1', selected: false},
-    {id: 21, image: 'av2', selected: false},
-    {id: 22, image: 'av3', selected: false},
-    {id: 23, image: 'av4', selected: false},
-    {id: 24, image: 'av5', selected: false}
+    {id: 20, image: 'av1', selected: false, desc: 'this is a description of the selected crewmember', name: 'Crewmember 1', prof: 'Mechanic'},
+    {id: 21, image: 'av2', selected: false, desc: 'this is a description of the selected crewmember', name: 'Crewmember 1', prof: 'Soldier'},
+    {id: 22, image: 'av3', selected: false, desc: 'this is a description of the selected crewmember', name: 'Crewmember 1', prof: 'Botanist'},
+    {id: 23, image: 'av4', selected: false, desc: 'this is a description of the selected crewmember', name: 'Crewmember 1', prof: 'Physicist '},
+    {id: 24, image: 'av5', selected: false, desc: 'this is a description of the selected crewmember', name: 'Crewmember 1', prof: 'Deadbeat'}
   ],
   generatorUpgrades: [
     {id: 1, name: 'gen upg 1', baseCost: 10, upgCount: 0, baseProd: 2},

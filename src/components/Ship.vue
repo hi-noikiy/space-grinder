@@ -10,17 +10,21 @@
       <div class="column col-2">
       <ShipUpgradePanel/>
     </div>
-    <div class="column col-8">
+    <div class="column col-7">
     </div>
-    <div class="column col-2"></div>
+    <div class="column col-3">
+      <CrewPanel />
+    </div>
     </div>
     <div class="column col-12">
       <div class="columns">
       <div class="column col-4"></div>
       <div class="column col-4">
-        <CrewPanel />
+
       </div>
-      <div class="column col-4"></div>
+      <div class="column col-4">
+
+      </div>
       </div>
     </div>
   </div>
@@ -52,25 +56,29 @@ export default {
   },
   computed: mapGetters(['speed']),
   methods: {
-    ...mapActions([
-      'incrementCoulombs',
-      'incrementCoulombsClick'
-    ]),
+    ...mapActions(['incrementCoulombs', 'incrementCoulombsClick']),
     screenClick: function () {
-      if (this.screenClicks++ < 30) { this.incrementCoulombsClick(1) }
+      if (this.screenClicks++ < 30) {
+        this.incrementCoulombsClick(1)
+      }
     },
     timestamp: function () {
-      return window.performance && window.performance.now ? window.performance.now() : new Date().getTime()
+      return window.performance && window.performance.now
+        ? window.performance.now()
+        : new Date().getTime()
     },
     frame: function () {
-      setTimeout(function () {
-        this.now = this.timestamp()
-        this.dt = (this.now - this.last) / 1000   // duration in seconds
-        this.update(this.dt)
-        // render(this.dt)
-        this.last = this.now
-        requestAnimationFrame(this.frame)
-      }.bind(this), 1000 / this.updateFrequence)
+      setTimeout(
+        function () {
+          this.now = this.timestamp()
+          this.dt = (this.now - this.last) / 1000 // duration in seconds
+          this.update(this.dt)
+          // render(this.dt)
+          this.last = this.now
+          requestAnimationFrame(this.frame)
+        }.bind(this),
+        1000 / this.updateFrequence
+      )
     },
     update: function (duration) {
       this.incrementCoulombs(0)
@@ -78,15 +86,17 @@ export default {
   },
   created: function () {
     requestAnimationFrame(this.frame)
-    setInterval(function () {
-      this.screenClicks = 0
-    }.bind(this), 1000)
+    setInterval(
+      function () {
+        this.screenClicks = 0
+      }.bind(this),
+      1000
+    )
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
 
 </style>
