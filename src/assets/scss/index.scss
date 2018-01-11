@@ -77,11 +77,15 @@ li {
         border-radius: $borderRadius;
     }
 
+.crew-panel {
+    position: relative;
+}
+
 .crew-select {
-  width: calc(100% / 3);
+  width: calc(100%);
   height: 100px;
   position: absolute;
-  bottom: -100px;
+  bottom: 100px;
   border: $border;
   background-color: $backgroundColorAccent;
   border-radius: $borderRadius;
@@ -90,4 +94,8 @@ li {
 .crew-avatar {
   margin-left: auto;
   margin-right: auto;
+}
+
+.crewselected {
+    opacity: 0.5;
 }

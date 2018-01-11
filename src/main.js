@@ -2,6 +2,7 @@
  * Import Global Style (.css/.scss)
  */
 import './assets/scss/index.scss'
+import './assets/images/avatar_1.png'
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.

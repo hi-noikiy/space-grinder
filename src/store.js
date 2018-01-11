@@ -13,11 +13,18 @@ const state = {
   mass: 200000,
   minerals: 100000,
   crew: [
-    {id: 0, image: './assets/images/head.png'},
-    {id: 1, image: '../assets/images/head2.png'},
-    {id: 2, image: '../assets/images/head.png'},
-    {id: 3, image: '../assets/images/head.png'},
-    {id: 4, image: '../assets/images/head.png'}
+    {id: 10, image: 'def'},
+    {id: 11, image: 'def'},
+    {id: 12, image: 'def'},
+    {id: 13, image: 'def'},
+    {id: 14, image: 'def'}
+  ],
+  availableCrew: [
+    {id: 20, image: 'av1', selected: false},
+    {id: 21, image: 'av2', selected: false},
+    {id: 22, image: 'av3', selected: false},
+    {id: 23, image: 'av4', selected: false},
+    {id: 24, image: 'av5', selected: false}
   ],
   generatorUpgrades: [
     {id: 1, name: 'gen upg 1', baseCost: 10, upgCount: 0, baseProd: 2},
@@ -76,7 +83,7 @@ const mutations = {
     state.minerals -= amount
   },
   buyGeneratorUpgrades (state, {id}) {
-    console.log('buyGeneratorUpgrades')
+    // console.log('buyGeneratorUpgrades')
     state.generatorUpgrades.map((upg) => {
       if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
         state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
@@ -85,7 +92,7 @@ const mutations = {
     })
   },
   buyStorageUpgrades (state, {id}) {
-    console.log('buyStorageUpgrades')
+    // console.log('buyStorageUpgrades')
     state.storageUpgrades.map((upg) => {
       if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
         state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
@@ -94,13 +101,21 @@ const mutations = {
     })
   },
   buyHullUpgrades (state, {id}) {
-    console.log('buyHullUpgrades')
+    // console.log('buyHullUpgrades')
     state.hullUpgrades.map((upg) => {
       if (upg.id === id && upg.baseCost * Math.pow(1.15, upg.upgCount) < state.minerals) {
         state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
         upg.upgCount++
       }
     })
+  },
+  assignCrewMember (state, {slotIdCrewId}) {
+    console.log(slotIdCrewId['slotId'])
+    console.log(slotIdCrewId['crewId'])
+    if (!state.availableCrew[slotIdCrewId['crewId']].selected) {
+      state.crew[slotIdCrewId['slotId']] = state.availableCrew[slotIdCrewId['crewId']]
+      state.availableCrew[slotIdCrewId['crewId']].selected = true
+    }
   }
 }
 
@@ -112,7 +127,8 @@ const actions = {
   decrementMass: ({ commit }, amount) => commit('decrementMass', {amount: amount}),
   buyGeneratorUpgrades: ({ commit }, id) => commit('buyGeneratorUpgrades', {id: id}),
   buyStorageUpgrades: ({ commit }, id) => commit('buyStorageUpgrades', {id: id}),
-  buyHullUpgrades: ({ commit }, id) => commit('buyHullUpgrades', {id: id})
+  buyHullUpgrades: ({ commit }, id) => commit('buyHullUpgrades', {id: id}),
+  assignCrewMember: ({ commit }, slotIdCrewId) => commit('assignCrewMember', {slotIdCrewId: slotIdCrewId})
 }
 
 const getters = {
@@ -135,7 +151,8 @@ const getters = {
     state.hullUpgrades.map(u => { state.mass -= u.massReduction * u.upgCount })
     return state.mass
   },
-  crew: state => state.crew
+  crew: state => state.crew,
+  availableCrew: state => state.availableCrew
 }
 
 export default new Vuex.Store({
