@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 import * as types from '../mutation-types'
 import upgrades from './upgrades'
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
 const state = {
   distance: 0,
@@ -11,9 +11,14 @@ const state = {
   cvMultiplier: 0,
   ampHourCapacity: 2,
   ahcMultiplier: 0,
-  coulombs: 0,
+  coulombs: 7000,
+  columobsMultiplier: 100,
   mass: 200000,
-  minerals: 100
+  minerals: 100000,
+  jumps: 0,
+  accumulatedDistance: 0,
+  baseMassIncrease: 1000,
+  upgradeTiers: [10, 100, 1000, 2500, 5000, 10000]
 }
 
 var addCoulombs = function (state, amount) {
@@ -28,8 +33,7 @@ var addCoulombs = function (state, amount) {
 
 const mutations = {
   [types.INCREMENT_COULOMBS] (state, {amount}) {
-    upgrades.state.generatorUpgrades.map(u => { amount += (u.baseProd * u.upgCount * u.level) })
-    addCoulombs(state, amount)
+    addCoulombs(state, getters.coulumbsPerSecons(state))
   },
   [types.INCREMENT_COULOMBS_CLICK] (state, {amount}) {
     addCoulombs(state, amount)
@@ -69,19 +73,23 @@ const getters = {
   capacity: state => state.ampHourCapacity * 3600,
   coulombs: state => state.coulombs,
   joules: state => state.cellVoltage * state.coulombs,
-  distance: state => Math.tanh((state.cellVoltage * state.coulombs) / state.mass),
+  distance: state => (state.cellVoltage * state.coulombs) / state.mass,
+  coulumbsPerSecons: state => {
+    return upgrades.state.upgrades.filter((upg) => upg.category === 1).reduce((sum, upg) => { return sum + (upg.baseProd * upg.upgCount * upg.level) }, 0)
+  },
   voltage: state => {
-    // upgrades.storageUpgrades.map(u => { state.cellVoltage += u.voltIncrease * u.upgCount })
+    upgrades.state.upgrades.filter((upg) => upg.category === 2).map(u => { state.cellVoltage += u.voltIncrease * u.upgCount })
     return state.cellVoltage
   },
   amps: state => {
-    // upgrades.storageUpgrades.map(u => { state.ampHourCapacity += u.ampIncrease * u.upgCount })
+    upgrades.state.upgrades.filter((upg) => upg.category === 2).map(u => { state.ampHourCapacity += u.ampIncrease * u.upgCount })
     return state.ampHourCapacity
   },
   mass: state => {
-    // upgrades.hullUpgrades.map(u => { state.mass -= u.massReduction * u.upgCount })
+    upgrades.state.upgrades.filter((upg) => upg.category === 3).map(u => { state.mass -= u.massReduction * u.upgCount })
     return state.mass
-  }
+  },
+  upgradeTiers: state => state.upgradeTiers
 }
 
 export default {

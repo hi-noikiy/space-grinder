@@ -1,26 +1,48 @@
 <template>
     <div class="columns upgradepanel">
       <div class="column col-12">
-        <ul class="upgrades">
-            <li class="heading"><span class="text-bold text-large">Generator Upgrades</span></li>
-            <li v-for="upgrade in generatorUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyGeneratorUpg(upgrade.id)}"  v-on:click="buyGeneratorUpgrades(upgrade.id)">
-                <UpgradeButton v-bind:upgrade="upgrade" />
-            </li>
-        </ul>
 
-        <ul class="upgrades">
-            <li class="heading"><span class="text-bold text-large">Capacity Upgrades</span></li>
-            <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyStorageUpg(upgrade.id)}" v-on:click="buyStorageUpgrades(upgrade.id)">
-                <UpgradeButton v-bind:upgrade="upgrade" />
-            </li>
-        </ul>
+        <details  class="accordion upgrade-panel" open>
+          <summary  class="accordion-header">
+            <i class="icon icon-arrow-right mr-1"></i>
+            Generator Upgrades
+          </summary >
+          <div class="accordion-body">
+            <ul class="upgrades">
+                <li v-for="upgrade in generatorUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyGeneratorUpg(upgrade.id)}"  >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" />
+                </li>
+            </ul>
+          </div>
+        </details >
 
-        <ul class="upgrades">
-            <li class="heading"><span class="text-bold text-large">Hull Upgrades</span></li>
-            <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyHullUpg(upgrade.id)}" v-on:click="buyHullUpgrades(upgrade.id)">
-                <UpgradeButton v-bind:upgrade="upgrade" />
-            </li>
-        </ul>
+        <details class="accordion upgrade-panel">
+          <summary class="accordion-header">
+            <i class="icon icon-arrow-right mr-1"></i>
+            Capacity Upgrades
+          </summary>
+          <div class="accordion-body">
+            <ul class="upgrades">
+                <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyStorageUpg(upgrade.id)}" >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" />
+                </li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="accordion upgrade-panel">
+          <summary class="accordion-header">
+            <i class="icon icon-arrow-right mr-1"></i>
+            Hull Upgrades
+          </summary>
+          <div class="accordion-body">
+            <ul class="upgrades">
+                <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyHullUpg(upgrade.id)}" >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades"/>
+                </li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
 </template>
@@ -39,30 +61,24 @@ export default {
     UpgradeButton
   },
   filters: {
-    exponentialize: function (value) {
-      var digits = 4
-      if (value.toString().length > digits) {
-        return value.toExponential(digits - 1)
-      } else { return value }
-    }
   },
   computed: mapGetters([
     'generatorUpgrades',
     'storageUpgrades',
     'hullUpgrades',
-    'minerals'
+    'minerals',
+    'upgradeTiers'
   ]),
   methods: {
     ...mapActions([
-      'buyGeneratorUpgrades',
-      'buyStorageUpgrades',
-      'buyHullUpgrades',
+      'buyUpgrades',
       'incrementCoulombs',
       'incrementCoulombsClick',
       'setVolts',
       'setAmps',
       'incrementMass',
-      'decrementMass'
+      'decrementMass',
+      'buyUpgradeUpgrade'
     ]),
     canBuyGeneratorUpg: function (id) {
       var upg = this.generatorUpgrades.filter(u => u.id === id)[0]

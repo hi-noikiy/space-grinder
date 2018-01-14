@@ -1,67 +1,97 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 import * as types from '../mutation-types'
 import ship from './ship'
 
-Vue.use(Vuex)
+class Upgrade {
+  constructor (category, id, name, baseCost) {
+    this.category = category
+    this.id = id
+    this.name = name
+    this.baseCost = baseCost
+    this.upgCount = 0
+    this.level = 1
+  }
+}
+
+class GeneratorUpgrade extends Upgrade {
+  constructor (category, id, name, baseCost, baseProd, massIncrease) {
+    super(category, id, name, baseCost)
+    this.massIncrease = 100 / 4 * massIncrease
+    this.baseProd = baseProd
+  }
+  get prod () {
+    return this.baseProd * this.upgCount * this.level
+  }
+}
+
+class CapacityUpgrade extends Upgrade {
+  constructor (category, id, name, baseCost, massIncrease, voltIncrease, ampIncrease) {
+    super(category, id, name, baseCost)
+    this.massIncrease = 100 / 4 * massIncrease
+    this.voltIncrease = voltIncrease
+    this.ampIncrease = ampIncrease
+  }
+}
+
+class HullUpgrade extends Upgrade {
+  constructor (category, id, name, baseCost, massReduction) {
+    super(category, id, name, baseCost)
+    this.massReduction = massReduction
+  }
+}
 
 const state = {
-  generatorUpgrades: [
-    {id: 1, name: 'gen upg 1', baseCost: 10, upgCount: 0, baseProd: 2, level: 1},
-    {id: 2, name: 'gen upg 2', baseCost: 125, upgCount: 0, baseProd: 6, level: 1},
-    {id: 3, name: 'gen upg 3', baseCost: 600, upgCount: 0, baseProd: 20, level: 1},
-    {id: 4, name: 'gen upg 4', baseCost: 1800, upgCount: 0, baseProd: 65, level: 1}
-  ],
-  storageUpgrades: [
-    {id: 1, name: 'stor upg 1', baseCost: 10 * 10, upgCount: 0, voltIncrease: 2, ampIncrease: 2, level: 1},
-    {id: 2, name: 'stor upg 2', baseCost: 125 * 10, upgCount: 0, voltIncrease: 6, ampIncrease: 6, level: 1},
-    {id: 3, name: 'stor upg 3', baseCost: 600 * 10, upgCount: 0, voltIncrease: 20, ampIncrease: 20, level: 1},
-    {id: 4, name: 'stor upg 4', baseCost: 1800 * 10, upgCount: 0, voltIncrease: 65, ampIncrease: 65, level: 1}
-  ],
-  hullUpgrades: [
-    {id: 1, name: 'hull upg 1', baseCost: 10 * 100, upgCount: 0, massReduction: 20, level: 1},
-    {id: 2, name: 'hull upg 2', baseCost: 125 * 100, upgCount: 0, massReduction: 60, level: 1},
-    {id: 3, name: 'hull upg 3', baseCost: 600 * 100, upgCount: 0, massReduction: 200, level: 1},
-    {id: 4, name: 'hull upg 4', baseCost: 1800 * 100, upgCount: 0, massReduction: 650, level: 1}
+  upgrades: [
+    new GeneratorUpgrade(1, 1001, 'gen upg 1', 10, 2, 4),
+    new GeneratorUpgrade(1, 1002, 'gen upg 2', 125, 6, 5),
+    new GeneratorUpgrade(1, 1003, 'gen upg 3', 600, 20, 6),
+    new GeneratorUpgrade(1, 1004, 'gen upg 4', 1800, 65, 7),
+
+    new CapacityUpgrade(2, 2001, 'stor upg 1', 100, 8, 2, 2),
+    new CapacityUpgrade(2, 2002, 'stor upg 2', 1250, 9, 6, 6),
+    new CapacityUpgrade(2, 2003, 'stor upg 3', 6000, 10, 20, 20),
+    new CapacityUpgrade(2, 2004, 'stor upg 4', 18000, 11, 65, 65),
+
+    new HullUpgrade(3, 3001, 'hull upg 1', 100, 20),
+    new HullUpgrade(3, 3002, 'hull upg 2', 1250, 60),
+    new HullUpgrade(3, 3003, 'hull upg 3', 6000, 200),
+    new HullUpgrade(3, 3004, 'hull upg 4', 18000, 650)
   ]
 }
 
+var upCost = function (upg) {
+  return upg.baseCost * Math.pow(1.15, upg.upgCount * ((upg.level / 100) + 1))
+}
+
 const mutations = {
-  [types.BUY_GENERATOR_UPGRADES] (state, {id}) {
-    var upg = state.generatorUpgrades.find((upg) => upg.id === id)
-    if (ship.state.minerals > upg.baseCost * Math.pow(1.15, upg.upgCount)) {
-      ship.state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
+  [types.BUY_UPGRADES] (state, {id}) {
+    var upg = state.upgrades.find((upg) => upg.id === id)
+    if (ship.state.minerals >= upCost(upg)) {
+      ship.state.minerals -= upCost(upg)
       upg.upgCount++
     }
   },
-  [types.BUY_STORAGE_UPGRADES] (state, {id}) {
-    var upg = state.storageUpgrades.find((upg) => upg.id === id)
-    if (ship.state.minerals > upg.baseCost * Math.pow(1.15, upg.upgCount)) {
-      ship.state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
-      ship.state.ampHourCapacity += upg.ampIncrease
-      ship.state.cellVoltage += upg.voltIncrease
-      upg.upgCount++
-    }
-  },
-  [types.BUY_HULL_UPGRADES] (state, {id}) {
-    var upg = state.hullUpgrades.find((upg) => upg.id === id)
-    if (ship.state.minerals > upg.baseCost * Math.pow(1.15, upg.upgCount)) {
-      ship.state.minerals -= upg.baseCost * Math.pow(1.15, upg.upgCount)
-      upg.upgCount++
+  [types.BUY_UPGRADE_UPGRADE] (state, {id}) {
+    var upg = state.upgrades.find((upg) => upg.id === id)
+    if (ship.state.minerals >= upCost(upg) && upg.upgCount + 1 > ship.state.upgradeTiers[upg.level - 1]) {
+      ship.state.minerals -= upCost(upg)
+      console.log(id)
+      upg.level++
     }
   }
 }
 
 const actions = {
-  buyGeneratorUpgrades: ({ commit }, id) => commit(types.BUY_GENERATOR_UPGRADES, {id: id}),
-  buyStorageUpgrades: ({ commit }, id) => commit(types.BUY_STORAGE_UPGRADES, {id: id}),
-  buyHullUpgrades: ({ commit }, id) => commit(types.BUY_HULL_UPGRADES, {id: id})
+  buyUpgrades: ({ commit }, id) => commit(types.BUY_UPGRADES, {id: id}),
+  buyUpgradeUpgrade: ({ commit }, id) => commit(types.BUY_UPGRADE_UPGRADE, {id: id})
+
 }
 
 const getters = {
-  generatorUpgrades: state => state.generatorUpgrades,
-  storageUpgrades: state => state.storageUpgrades,
-  hullUpgrades: state => state.hullUpgrades
+  generatorUpgrades: state => state.upgrades.filter((upg) => upg.category === 1),
+  storageUpgrades: state => state.upgrades.filter((upg) => upg.category === 2),
+  hullUpgrades: state => state.upgrades.filter((upg) => upg.category === 3)
 }
 
 export default {

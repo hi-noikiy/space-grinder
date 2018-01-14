@@ -1,13 +1,12 @@
-$backgroundColor: #24292E;
-$backgroundColorAccent: rgb(235, 235, 235);
-$color: #7D858C;
-$colorAccent: rgb(63, 63, 63);
-$border: 1px solid gray;
-$borderRadius: 3px;
+@import "./spectre/spectre-icons.scss";
+@import "./spectre/spectre-exp.scss";
+@import "./spectre/spectre.scss";
+
+$border: 1px solid $primary-color-light;
 
 html, body, #app {
-    background: $backgroundColor;
-    color: $color;
+    background: #1C1F24;
+    // color: $color;
     height: 100%;
     width: 100%;
     -webkit-touch-callout: none;
@@ -20,43 +19,80 @@ html, body, #app {
 }
 
 .hud {
-    border: $border;
-    background-color: $backgroundColorAccent;
+    // border: $border;
+    background-color: $secondary-color;
     padding: 4px;
-    color:$colorAccent;
+    // color:$colorAccent;
   }
 
   .heading {
     background: none;
     margin-top: 0;
     border: 0;
-   color:$colorAccent;
+   color:$dark-color;
 }
-ul {
-  margin: 0;
-  margin-bottom: 8%;
-  padding: 4px;
-  background-color: $backgroundColorAccent;
-  border-radius: $borderRadius;
+
+
+.crew-panel {
+  .popover {
+    display: block;
+  }
+  .popover-container {
+    // position: relative;
+    top: 150%!important;
+  }
+  .accordion {
+    background-color: $secondary-color;
+  }
+  .accordion-body{
+    padding: 2px;
+
+  }
+
+  .tile{
+    padding: 2px;
+    margin-bottom: 4px;
+    background-color: darken($primary-color-light, 10%);
+    color:darken($light-color, 30%);
+
+
+  }
+  .canBuy:hover {
+    background-color: lighten($primary-color-light, 3%);
+  }
+  .canBuy {
+      background-color: $primary-color-light;
+      color:$light-color;
+  }
+
+
 }
-li {
-    list-style: none;
-    background-color: $backgroundColor;
-    color:$color;
-    border: $border;
-    border-radius: $borderRadius;
-    padding: 2px 4px;
+
+.upgrade-panel{
+  background-color: $secondary-color;
+  ul {
+    margin: 0;
+    padding: 2px;
+    li {
+      list-style: none;
+      padding: 2px 6px;
+      margin-top: 0.1rem;
+      background-color: darken($primary-color-light, 10%);
+      color:darken($light-color, 30%);
+  }
+  .canBuy:hover {
+      background-color: lighten($primary-color-light, 3%);
+  }
+  .canBuy {
+      background-color: $primary-color-light;
+      color:$light-color;
+  }
 }
-.canBuy:hover {
-    background-color: lighten($backgroundColor, 15%);
+
 }
-.canBuy {
-    background-color: lighten($backgroundColor, 10%);
-    color:lighten($color, 30%);
-}
-.upgradepanel, .crew-panel  {
+.upgrade-panel, .crew-panel  {
     font-size: 0.6rem;
-    margin-top: 10%;
+    margin-top: 4%;
 }
 #main-window {
     height: 100%;
@@ -72,9 +108,9 @@ li {
         margin: 2px;
         height: 72px;
         width: 72px;
-        background: $backgroundColorAccent;
+        background: $secondary-color;
         border: $border;
-        border-radius: $borderRadius;
+        border-radius: 3px;
     }
 
 
@@ -96,4 +132,8 @@ li {
   100% {
     transform: scale(1);
   }
+}
+
+.text-small {
+  font-size: 90%;
 }

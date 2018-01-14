@@ -15,26 +15,47 @@
     </transition>
     </div>
    <div class="column col-8">
-     <div v-for="(member, index) in crew" class=" tooltip tooltip-left" :key="member.id" v-bind:data-tooltip="member.desc">
-       <div class="tile tile-centered">
-        <div class="tile-icon">
-          <figure class="avatar avatar-lg mx-1">
-            <img  v-if="member !== null" :src="avatars[member.image]"  v-bind:alt="member.desc">
-          </figure>
-        </div>
-        <div class="tile-content">
-          <div class="tile-title">{{member.name}}</div>
-          <div class="tile-subtitle text-gray">{{member.prof}}</div>
-        </div>
-        <div class="tile-action">
-          <button class="btn btn-link" v-on:click="showCrewSelectionPanel(index)">
-            <i class="icon icon-plus"></i>
-          </button>
-        </div>
-      </div>
-       <div class="divider "></div>
-     </div>
+      <!-- <details class="accordion " open>
+          <summary  class="accordion-header">
+            <i class="icon icon-arrow-right mr-1"></i>
+            Crew Panel
+          </summary > -->
+          <div class="accordion-body">
+            <div v-for="(member, index) in crew" class=" popover popover-left" :key="member.id" >
+              <div class="tile tile-centered"  v-bind:class="{canBuy: (100 / member.unlock * coulombs) > 100}">
+                <div class="tile-icon">
+                  <figure class="avatar avatar-lg mx-1">
+                    <img  v-if="member !== null" :src="avatars[member.image]"  v-bind:alt="member.desc">
+                  </figure>
+                </div>
+                <div class="tile-content">
+                  <div class="tile-title text-bold">{{member.name}}</div>
+                  <div class="tile-subtitle " v-if="member.prof !== undefined">{{member.prof}}</div>
+                  <div class="tile-subtitle " v-if="member.prof === undefined && (100 / member.unlock * coulombs) < 100">{{100 / member.unlock * coulombs | exponentialize }} %</div>
+                  <div class="tile-subtitle " v-if="member.prof === undefined && (100 / member.unlock * coulombs) > 100">Unlocked</div>
+                </div>
+                <div class="tile-action">
+                  <button class="btn btn-link"  v-bind:class="{disabled: (100 / member.unlock * coulombs) < 100}" v-on:click="showCrewSelectionPanel(index)">
+                    <i class="icon icon-plus"></i>
+                  </button>
+                </div>
+              </div>
+               <div class="popover-container">
+                <div class="card">
+                  <div class="card-header">
+                    <span class="text-bold">{{member.name}}</span>
+                  </div>
+                  <div class="card-body">
+                    <span v-html="member.description"></span>
+                  </div>
+                  <div class="card-footer">
 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         <!-- </details > -->
       </div>
     </div>
 </template>
@@ -73,11 +94,10 @@ export default {
       this.showSelectionPanel = false
     },
     selectCrewMember: function (crewId) {
-      // console.log(crewId)
       this.assignCrewMember({ slotId: this.selectedIndex, crewId: crewId })
     }
   },
-  computed: mapGetters(['crew', 'availableCrew'])
+  computed: mapGetters(['crew', 'availableCrew', 'coulombs'])
 }
 </script>
 
