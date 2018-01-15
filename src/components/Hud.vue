@@ -1,13 +1,45 @@
 <template>
     <div class='columns col-online hud'>
-      <div title="Cell Voltage" class='column col-1'>{{voltage | exponentialize}}V</div>
-      <div title="AmpHour Capacity" class='column col-1'>{{amps | exponentialize}}mAh</div>
-      <div title="Energy" class='column col-1'>{{joules | exponentialize}}J</div>
-      <div title="Charge Capacity" class='column col-2'>{{coulombs | exponentialize}}/{{capacity | exponentialize}}C</div>
-      <div title="Charge Capacity" class='column col-2'>{{coulumbsPerSecons}}C/s</div>
-      <div title="Mass of spaceship" class='column col-1'>{{mass | exponentialize}}kg</div>
-      <div title="Approximate jump distance" class='column col-1 text-bold'>{{distance | exponentialize}}m</div>
-      <div title="Minerals" class='column col-1'>{{minerals | exponentialize}}g</div>
+      <div id="v" class='column col-1'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Cell Voltage: ${voltage}V`">
+          {{voltage | exponentialize}}V
+        </span>
+      </div>
+      <div id="mah" class='column col-1'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`AmpHour Capacity: ${amps}mAh`">
+          {{amps | exponentialize}}mAh
+        </span>
+      </div>
+      <div id="j" class='column col-1'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Energy: ${joules}J`">
+          {{joules | exponentialize}}J
+        </span>
+      </div>
+      <div id="c" class='column col-2'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Charge Capacity: ${coulombs}/${capacity}C`">
+          {{coulombs | exponentialize}}/{{capacity | exponentialize}}C
+        </span>
+      </div>
+      <div id="cps" class='column col-2'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Production: ${coulumbsPerSecons}C/s`">
+          {{coulumbsPerSecons | exponentialize}}C/s
+        </span>
+      </div>
+      <div id="kg" class='column col-1'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Mass of spaceship: ${mass}kg`">
+          {{mass | exponentialize}}kg
+        </span>
+      </div>
+      <div id="d" class='column col-1 text-bold'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Approximate jump distance: ${distance}m`">
+          {{distance | exponentialize}}m
+        </span>
+      </div>
+      <div id="m" class='column col-1'>
+        <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Minerals: ${minerals}g`">
+          {{minerals | exponentialize}}g
+        </span>
+      </div>
     </div>
 </template>
 
@@ -36,7 +68,6 @@ export default {
 }
 </script>
 
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

@@ -40,7 +40,7 @@
                   </button>
                 </div>
               </div>
-               <div class="popover-container">
+               <div class="popover-container" v-if="member.stats !== undefined">
                 <div class="card">
                   <div class="card-header">
                     <span class="text-bold">{{member.name}}</span>
@@ -49,7 +49,6 @@
                     <span v-html="member.description"></span>
                   </div>
                   <div class="card-footer">
-
                   </div>
                 </div>
               </div>
