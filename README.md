@@ -1,7 +1,8 @@
-# space-grinder
+# Space Grinder
 
 > A space exploration grinder, how far can you go?
-
+> An incremental clicker game inspired by games like Realm Grinder
+[![Build Status](https://travis-ci.org/MikaelGyth/space-grinder.svg?branch=master)](https://travis-ci.org/MikaelGyth/space-grinder)
 ## Build Setup
 
 ``` bash
