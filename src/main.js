@@ -8,6 +8,7 @@ import './assets/scss/index.scss'
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+
 // import utility from './store/utility'
 
 Vue.filter('exponentialize', function (value) {

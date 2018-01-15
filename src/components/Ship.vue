@@ -36,6 +36,7 @@ import Hud from './Hud'
 import ShipUpgradePanel from './ShipUpgradePanel'
 import CrewPanel from './CrewPanel'
 import { mapGetters, mapActions } from 'vuex'
+import raf from '../rAF'
 
 export default {
   name: 'Ship',
@@ -75,7 +76,9 @@ export default {
           this.update(this.dt)
           // render(this.dt)
           this.last = this.now
-          requestAnimationFrame(this.frame)
+          if (window !== undefined) {
+            window.requestAnimationFrame(this.frame)
+          }
         }.bind(this),
         1000 / this.updateFrequence
       )
@@ -85,7 +88,10 @@ export default {
     }
   },
   created: function () {
-    requestAnimationFrame(this.frame)
+    if (window !== undefined) {
+      window.requestAnimationFrame(this.frame)
+    }
+
     setInterval(
       function () {
         this.screenClicks = 0
