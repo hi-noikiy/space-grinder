@@ -88,7 +88,9 @@ export default {
     }
   },
   created: function () {
-    if (window !== undefined) {
+    if (window === undefined) {
+      raf.requestAnimationFrame(this.frame)
+    } else {
       window.requestAnimationFrame(this.frame)
     }
 
