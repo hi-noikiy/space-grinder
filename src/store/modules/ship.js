@@ -12,7 +12,7 @@ const state = {
   cvMultiplier: 0,
   ampHourCapacity: 2,
   ahcMultiplier: 0,
-  coulombs: 7000,
+  coulombs: 7500,
   cps: 0,
   columobsMultiplier: 100,
   mass: 200000,
@@ -30,14 +30,16 @@ const _addCoulombs = function (state, amount) {
     _addMinerals(amount / 4)
   } else {
     state.coulombs = capacity
-    _addMinerals(amount / 2)
+    _addMinerals(state, amount / 2)
   }
 }
 
 const _addMinerals = function (state, amount) {
+  // console.log(state.coulombs)
   if (state.coulombs > 500) {
     let crewBonus = crew.state.crew.filter((member) => member.stats !== undefined).reduce((sum, mbr) => { return sum + mbr.stats.mineralIncrease }, 0)
     crewBonus = crewBonus / 100 + 1
+    // console.log(amount * crewBonus)
     state.minerals += amount * crewBonus
   }
 }
@@ -55,6 +57,12 @@ const mutations = {
   },
   [types.INCREMENT_AMPS] (state, {amount}) {
     state.ampHourCapacity += amount
+  },
+  [types.SET_VOLTS] (state, {amount}) {
+    state.cellVoltage = amount
+  },
+  [types.SET_AMPS] (state, {amount}) {
+    state.ampHourCapacity = amount
   },
   [types.INCREMENT_MASS] (state, {amount}) {
     state.mass += amount
@@ -74,7 +82,9 @@ const actions = {
   incrementCoulombs: ({ commit }, amount) => commit(types.INCREMENT_COULOMBS, {amount: amount}),
   incrementCoulombsClick: ({ commit }, amount) => commit(types.INCREMENT_COULOMBS_CLICK, {amount: amount}),
   incrementVolts: ({ commit }, amount) => commit(types.INCREMENT_VOLTS, {amount: amount}),
+  setVolts: ({ commit }, amount) => commit(types.SET_VOLTS, {amount: amount}),
   incrementAmps: ({ commit }, amount) => commit(types.INCREMENT_AMPS, {amount: amount}),
+  setAmps: ({ commit }, amount) => commit(types.SET_AMPS, {amount: amount}),
   incrementMass: ({ commit }, amount) => commit(types.INCREMENT_MASS, {amount: amount}),
   decrementMass: ({ commit }, amount) => commit(types.DECREMENT_MASS, {amount: amount}),
   decrementMinerals: ({ commit }, amount) => commit(types.DECREMENT_MINERALS, {amount: amount})
@@ -100,7 +110,6 @@ const getters = {
     let crewBonus = crew.state.crew.filter((member) => member.stats !== undefined).reduce((sum, mbr) => { return sum + mbr.stats.voltIncrease }, 0)
     crewBonus = crewBonus / 100 + 1
     state.cellVoltage = state.cellVoltage * crewBonus
-    console.log(state.cellVoltage)
     return state.cellVoltage
   },
   amps: state => {
@@ -108,6 +117,7 @@ const getters = {
     upgrades.state.upgrades.filter((upg) => upg.category === 2).map(u => { state.ampHourCapacity += u.ampIncrease * u.upgCount })
     // get bonus from crew
     let crewBonus = crew.state.crew.filter((member) => member.stats !== undefined).reduce((sum, mbr) => { return sum + mbr.stats.ampIncrease }, 0)
+    console.log(crewBonus)
     crewBonus = crewBonus / 100 + 1
     state.ampHourCapacity = state.ampHourCapacity * crewBonus
     return state.ampHourCapacity

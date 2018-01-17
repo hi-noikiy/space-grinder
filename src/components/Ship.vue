@@ -14,6 +14,7 @@
     </div>
     <div class="column col-3">
       <CrewPanel />
+      <ScannerPanel />
     </div>
     </div>
     <div class="column col-12">
@@ -35,6 +36,7 @@
 import Hud from './Hud'
 import ShipUpgradePanel from './ShipUpgradePanel'
 import CrewPanel from './CrewPanel'
+import ScannerPanel from './ScannerPanel'
 import { mapGetters, mapActions } from 'vuex'
 import raf from '../rAF'
 
@@ -53,7 +55,8 @@ export default {
   components: {
     Hud,
     ShipUpgradePanel,
-    CrewPanel
+    CrewPanel,
+    ScannerPanel
   },
   computed: mapGetters(['speed']),
   methods: {
@@ -88,7 +91,9 @@ export default {
     }
   },
   created: function () {
-    if (window !== undefined) {
+    if (window === undefined) {
+      raf.requestAnimationFrame(this.frame)
+    } else {
       window.requestAnimationFrame(this.frame)
     }
 

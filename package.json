@@ -79,6 +79,7 @@
     "url-loader": "^0.5.8",
     "vue-jest": "^1.0.2",
     "vue-loader": "^13.3.0",
+    "vue-server-renderer": "^2.5.13",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.10.0",
@@ -94,5 +95,15 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+<<<<<<< HEAD
   ]
+=======
+  ],
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
+      "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
+    }
+  }
+>>>>>>> d7467d692b2c2fbaff47cd58ff4aaa1b2619a0ea
 }
