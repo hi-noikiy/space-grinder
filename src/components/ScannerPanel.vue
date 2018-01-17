@@ -5,7 +5,7 @@
       <div class="card-subtitle text-gray text-small">There are 0 unidentified objects within scanner range</div>
     </div>
     <div class="card-image">
-      <img :src="radar" class="img-responsive">
+      <canvas ref="scannerCanvas" id="scannerCanvas" width="340" height="170" style="border:1px solid #d3d3d3;"/>
     </div>
     <div class="card-body">
     <div class="columns column col-12 action-panel">
@@ -23,14 +23,57 @@
 </template>
 
 <script>
-import radar from './../assets/images/temporary_radar.jpg'
 export default {
 
   name: 'ScannerPanel',
   data () {
     return {
-      radar: radar
     }
+  },
+  methods: {
+    drawGrid: function () {
+      let c = document.getElementById('scannerCanvas')
+      let ctx = c.getContext('2d')
+      ctx.fillStyle = '#1B1E23'
+      ctx.fillRect(0, 0, c.width, c.height)
+
+      for (let i = 0; i <= c.height; i += 10) {
+        this.drawHLine(0, i, ctx, c)
+      }
+      for (let i = 0; i <= c.width; i += 10) {
+        this.drawVLine(i, 0, ctx, c)
+      }
+      for (let i = -90; i <= 150; i += 15) {
+        this.drawCurve(i, ctx, c)
+      }
+    },
+    drawCurve: (inc, ctx, c) => {
+      ctx.beginPath()
+      ctx.moveTo(0 + inc, c.height)
+      ctx.bezierCurveTo(20 + inc, -0.55 + inc, (c.width - 20) - inc, -0.55 + inc, c.width - inc, c.height)
+      ctx.strokeStyle = '#4c5f61'
+      ctx.stroke()
+    },
+    drawVLine: (x, y, ctx, c) => {
+      ctx.beginPath()
+      ctx.moveTo(x, y)
+      ctx.lineTo(x, c.height)
+      ctx.strokeStyle = '#4f4c61'
+      ctx.stroke()
+    },
+    drawHLine: (x, y, ctx, c) => {
+      ctx.beginPath()
+      ctx.moveTo(x, y)
+      ctx.lineTo(c.width, y)
+      ctx.strokeStyle = '#4f4c61'
+      ctx.stroke()
+    }
+  },
+  created: function () {
+    // this.drawGrid()
+    document.addEventListener('DOMContentLoaded', function (event) {
+      this.drawGrid()
+    }.bind(this))
   }
 }
 </script>
