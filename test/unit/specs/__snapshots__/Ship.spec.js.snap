@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ship.vue matches snapshot 1`] = `
+<div id="main-window" class="container">
+    <div class="columns">
+        <div class="column col-12">
+            <!---->
+        </div>
+        <div class="column col-12 columns">
+            <div class="column col-2">
+                <!---->
+            </div>
+            <div class="column col-7"></div>
+            <div class="column col-3">
+                <!---->
+                <!---->
+            </div>
+        </div>
+        <div class="column col-12">
+            <div class="columns">
+                <div class="column col-4"></div>
+                <div class="column col-4"></div>
+                <div class="column col-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+`;

@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CrewPanel.vue matches snapshot 1`] = `
+<div class="columns crew-panel">
+    <div class="column col-4">
+        <!---->
+    </div>
+    <div class="column col-8">
+        <div class="accordion-body">
+            <div class=" popover popover-left">
+                <div class="tile tile-centered canBuy">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-lg mx-1">
+                            <img src="default.png" alt="select a crewmember">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title text-bold">Select member</div>
+                        <!---->
+                        <!---->
+                        <div class="tile-subtitle ">Unlocked</div>
+                    </div>
+                    <div class="tile-action">
+                        <button class="btn btn-link">
+                            <i class="icon icon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class=" popover popover-left">
+                <div class="tile tile-centered">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-lg mx-1">
+                            <img src="default.png" alt="select a crewmember">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title text-bold">Select member</div>
+                        <!---->
+                        <div class="tile-subtitle ">0.10416666666666667 %</div>
+                        <!---->
+                    </div>
+                    <div class="tile-action">
+                        <button class="btn btn-link disabled">
+                            <i class="icon icon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class=" popover popover-left">
+                <div class="tile tile-centered">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-lg mx-1">
+                            <img src="default.png" alt="select a crewmember">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title text-bold">Select member</div>
+                        <!---->
+                        <div class="tile-subtitle ">0.0010416666666666667 %</div>
+                        <!---->
+                    </div>
+                    <div class="tile-action">
+                        <button class="btn btn-link disabled">
+                            <i class="icon icon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class=" popover popover-left">
+                <div class="tile tile-centered">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-lg mx-1">
+                            <img src="default.png" alt="select a crewmember">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title text-bold">Select member</div>
+                        <!---->
+                        <div class="tile-subtitle ">0.000010416666666666668 %</div>
+                        <!---->
+                    </div>
+                    <div class="tile-action">
+                        <button class="btn btn-link disabled">
+                            <i class="icon icon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class=" popover popover-left">
+                <div class="tile tile-centered">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-lg mx-1">
+                            <img src="default.png" alt="select a crewmember">
+                        </figure>
+                    </div>
+                    <div class="tile-content">
+                        <div class="tile-title text-bold">Select member</div>
+                        <!---->
+                        <div class="tile-subtitle ">1.0416666666666667e-7 %</div>
+                        <!---->
+                    </div>
+                    <div class="tile-action">
+                        <button class="btn btn-link disabled">
+                            <i class="icon icon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
+</div>
+`;

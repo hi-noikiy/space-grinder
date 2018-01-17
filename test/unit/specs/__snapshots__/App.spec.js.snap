@@ -12,11 +12,11 @@ exports[`App.vue Test initial rendering 1`] = `
                     <div id="mah" class="column col-1"><span data-tooltip="AmpHour Capacity: 2mAh" class="tooltip tooltip-bottom">
       2mAh
     </span></div>
-                    <div id="j" class="column col-1"><span data-tooltip="Energy: 14000J" class="tooltip tooltip-bottom">
-      14000J
+                    <div id="j" class="column col-1"><span data-tooltip="Energy: 15000J" class="tooltip tooltip-bottom">
+      15000J
     </span></div>
-                    <div id="c" class="column col-2"><span data-tooltip="Charge Capacity: 7000/7200C" class="tooltip tooltip-bottom">
-      7000/7200C
+                    <div id="c" class="column col-2"><span data-tooltip="Charge Capacity: 7500/7200C" class="tooltip tooltip-bottom">
+      7500/7200C
     </span></div>
                     <div id="cps" class="column col-2"><span data-tooltip="Production: 0C/s" class="tooltip tooltip-bottom">
       0C/s
@@ -24,8 +24,8 @@ exports[`App.vue Test initial rendering 1`] = `
                     <div id="kg" class="column col-1"><span data-tooltip="Mass of spaceship: 200000kg" class="tooltip tooltip-bottom">
       200000kg
     </span></div>
-                    <div id="d" class="column col-1 text-bold"><span data-tooltip="Approximate jump distance: 0.07m" class="tooltip tooltip-bottom">
-      0.07m
+                    <div id="d" class="column col-1 text-bold"><span data-tooltip="Approximate jump distance: 0.075m" class="tooltip tooltip-bottom">
+      0.075m
     </span></div>
                     <div id="m" class="column col-1"><span data-tooltip="Minerals: 100000g" class="tooltip tooltip-bottom">
       100000g
@@ -294,6 +294,27 @@ exports[`App.vue Test initial rendering 1`] = `
                         <div class="column col-8">
                             <div class="accordion-body">
                                 <div class=" popover popover-left">
+                                    <div class="tile tile-centered canBuy">
+                                        <div class="tile-icon">
+                                            <figure class="avatar avatar-lg mx-1">
+                                                <img src="default.png" alt="select a crewmember">
+                                            </figure>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="tile-title text-bold">Select member</div>
+                                            <!---->
+                                            <!---->
+                                            <div class="tile-subtitle ">Unlocked</div>
+                                        </div>
+                                        <div class="tile-action">
+                                            <button class="btn btn-link">
+                                                <i class="icon icon-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!---->
+                                </div>
+                                <div class=" popover popover-left">
                                     <div class="tile tile-centered">
                                         <div class="tile-icon">
                                             <figure class="avatar avatar-lg mx-1">
@@ -303,7 +324,7 @@ exports[`App.vue Test initial rendering 1`] = `
                                         <div class="tile-content">
                                             <div class="tile-title text-bold">Select member</div>
                                             <!---->
-                                            <div class="tile-subtitle ">97.22222222222221 %</div>
+                                            <div class="tile-subtitle ">0.10416666666666667 %</div>
                                             <!---->
                                         </div>
                                         <div class="tile-action">
@@ -324,7 +345,7 @@ exports[`App.vue Test initial rendering 1`] = `
                                         <div class="tile-content">
                                             <div class="tile-title text-bold">Select member</div>
                                             <!---->
-                                            <div class="tile-subtitle ">0.09722222222222222 %</div>
+                                            <div class="tile-subtitle ">0.0010416666666666667 %</div>
                                             <!---->
                                         </div>
                                         <div class="tile-action">
@@ -345,7 +366,7 @@ exports[`App.vue Test initial rendering 1`] = `
                                         <div class="tile-content">
                                             <div class="tile-title text-bold">Select member</div>
                                             <!---->
-                                            <div class="tile-subtitle ">0.0009722222222222222 %</div>
+                                            <div class="tile-subtitle ">0.000010416666666666668 %</div>
                                             <!---->
                                         </div>
                                         <div class="tile-action">
@@ -366,28 +387,7 @@ exports[`App.vue Test initial rendering 1`] = `
                                         <div class="tile-content">
                                             <div class="tile-title text-bold">Select member</div>
                                             <!---->
-                                            <div class="tile-subtitle ">0.000009722222222222223 %</div>
-                                            <!---->
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link disabled">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!---->
-                                </div>
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <div class="tile-subtitle ">9.722222222222222e-8 %</div>
+                                            <div class="tile-subtitle ">1.0416666666666667e-7 %</div>
                                             <!---->
                                         </div>
                                         <div class="tile-action">
@@ -399,6 +399,26 @@ exports[`App.vue Test initial rendering 1`] = `
                                     <!---->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title h5">Scanner</div>
+                            <div class="card-subtitle text-gray text-small">There are 0 unidentified objects within scanner range</div>
+                        </div>
+                        <div class="card-image">
+                            <img src="temporary_radar.jpg" class="img-responsive">
+                        </div>
+                        <div class="card-body">
+                            <div class="columns column col-12 action-panel">
+                                <div class="column ">
+                                    <input type="number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Send</button>
+                            <button class="btn btn-primary">Scan</button>
                         </div>
                     </div>
                 </div>

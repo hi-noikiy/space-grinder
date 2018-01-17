@@ -8,11 +8,11 @@ exports[`Hud.vue matches snapshot 1`] = `
     <div id="mah" class="column col-1"><span data-tooltip="AmpHour Capacity: 2mAh" class="tooltip tooltip-bottom">
       2mAh
     </span></div>
-    <div id="j" class="column col-1"><span data-tooltip="Energy: 14000J" class="tooltip tooltip-bottom">
-      14000J
+    <div id="j" class="column col-1"><span data-tooltip="Energy: 15000J" class="tooltip tooltip-bottom">
+      15000J
     </span></div>
-    <div id="c" class="column col-2"><span data-tooltip="Charge Capacity: 7000/7200C" class="tooltip tooltip-bottom">
-      7000/7200C
+    <div id="c" class="column col-2"><span data-tooltip="Charge Capacity: 7500/7200C" class="tooltip tooltip-bottom">
+      7500/7200C
     </span></div>
     <div id="cps" class="column col-2"><span data-tooltip="Production: 0C/s" class="tooltip tooltip-bottom">
       0C/s
@@ -20,8 +20,8 @@ exports[`Hud.vue matches snapshot 1`] = `
     <div id="kg" class="column col-1"><span data-tooltip="Mass of spaceship: 200000kg" class="tooltip tooltip-bottom">
       200000kg
     </span></div>
-    <div id="d" class="column col-1 text-bold"><span data-tooltip="Approximate jump distance: 0.07m" class="tooltip tooltip-bottom">
-      0.07m
+    <div id="d" class="column col-1 text-bold"><span data-tooltip="Approximate jump distance: 0.075m" class="tooltip tooltip-bottom">
+      0.075m
     </span></div>
     <div id="m" class="column col-1"><span data-tooltip="Minerals: 100000g" class="tooltip tooltip-bottom">
       100000g

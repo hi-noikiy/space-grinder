@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -20,7 +20,6 @@
     "spectre.css": "^0.5.0",
     "underscore": "^1.8.3",
     "vue": "^2.5.2",
-    "vue-test-utils": "^1.0.0-beta.11",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -95,9 +94,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-<<<<<<< HEAD
-  ]
-=======
   ],
   "jest": {
     "moduleNameMapper": {
@@ -105,5 +101,4 @@
       "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
     }
   }
->>>>>>> d7467d692b2c2fbaff47cd58ff4aaa1b2619a0ea
 }
