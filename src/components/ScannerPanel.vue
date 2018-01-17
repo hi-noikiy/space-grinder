@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     drawGrid: function () {
-      let c = document.getElementById('scannerCanvas')
+      let c = this.$refs.scannerCanvas // document.getElementById('scannerCanvas')
       let ctx = c.getContext('2d')
       ctx.fillStyle = '#1B1E23'
       ctx.fillRect(0, 0, c.width, c.height)
@@ -79,8 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .radar {
-    height: 200px;
+  #scannerCanvas {
+    width: 100% ;
+    height: 170px;
     background-color: red;
   }
 </style>
