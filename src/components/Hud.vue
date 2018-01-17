@@ -57,7 +57,6 @@ export default {
     'minerals',
     'joules',
     'capacity',
-    'joules',
     'distance',
     'voltage',
     'amps',
