@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <div class="card-title h5">Scanner</div>
-      <div class="card-subtitle text-gray text-small">There are 0 unidentified objects within scanner range</div>
+      <div class="card-subtitle text-gray text-small">There are {{objects}} unidentified objects in range</div>
     </div>
     <div class="card-image">
       <canvas ref="scannerCanvas" id="scannerCanvas" width="340" height="170" style="border:1px solid #d3d3d3;"/>
@@ -16,8 +16,8 @@
   </div>
 
     <div class="card-footer">
-    <button class="btn btn-primary" >Send</button>
-    <button class="btn btn-primary" >Scan</button>
+    <button class="btn btn-primary" >Salvage</button>
+    <button class="btn btn-primary" v-on:click="scan" >Scan</button>
   </div>
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
   name: 'ScannerPanel',
   data () {
     return {
+      objects: 0
     }
   },
   methods: {
@@ -67,6 +68,9 @@ export default {
       ctx.lineTo(c.width, y)
       ctx.strokeStyle = '#4f4c61'
       ctx.stroke()
+    },
+    scan: function () {
+      this.objects = Math.floor((Math.random() * 10000) + 1000)
     }
   },
   created: function () {
