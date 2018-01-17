@@ -9,8 +9,11 @@
     </div>
     <div class="card-body">
     <div class="columns column col-12 action-panel">
-      <div class="column ">
-        <input type="number" />
+      <div class="column col-12">
+        <input class="slider tooltip" v-model="drones" type="range" min="1" v-bind:max="maxDrones" step="1" @change="sliderChange" />
+      </div>
+      <div class="column col-12">
+        <span>{{drones}}/{{maxDrones}} @{{Math.exp(drones)+2500 | exponentialize}}g</span>
       </div>
     </div>
   </div>
@@ -23,15 +26,21 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-
   name: 'ScannerPanel',
   data () {
     return {
-      objects: 0
+      objects: 0,
+      drones: 0,
+      maxDrones: 20
     }
   },
   methods: {
+    ...mapActions(['decrementMinerals']),
+    sliderChange: () => {
+      this.$emit('sliderChange', Number(this.drones))
+    },
     drawGrid: function () {
       let c = this.$refs.scannerCanvas // document.getElementById('scannerCanvas')
       let ctx = c.getContext('2d')
@@ -73,6 +82,7 @@ export default {
       this.objects = Math.floor((Math.random() * 10000) + 1000)
     }
   },
+  computed: mapGetters(['minerals']),
   created: function () {
     // this.drawGrid()
     document.addEventListener('DOMContentLoaded', function (event) {

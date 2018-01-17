@@ -4,36 +4,26 @@
       <div class="column col-12">
         <Hud/>
       </div>
-
-
-    <div class="column col-12 columns">
-      <div class="column col-2">
-      <ShipUpgradePanel/>
-    </div>
-    <div class="column col-7">
-    </div>
-    <div class="column col-3">
-      <CrewPanel />
-      <ScannerPanel />
-    </div>
-    </div>
-    <div class="column col-12">
-      <div class="columns">
-      <div class="column col-4"></div>
-      <div class="column col-4">
-
+      <div class="column col-12 columns">
+        <div class="column col-2">
+          <ShipUpgradePanel/>
+        </div>
+        <div class="column col-7"></div>
+        <div class="column col-3">
+          <CrewPanel />
+          <ScannerPanel />
+        </div>
       </div>
-      <div class="column col-4">
-
-      </div>
+      <div class="column col-12 sink">
+        <LGP/>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
 import Hud from './Hud'
+import LGP from './LiquidGasPanel'
 import ShipUpgradePanel from './ShipUpgradePanel'
 import CrewPanel from './CrewPanel'
 import ScannerPanel from './ScannerPanel'
@@ -56,7 +46,8 @@ export default {
     Hud,
     ShipUpgradePanel,
     CrewPanel,
-    ScannerPanel
+    ScannerPanel,
+    LGP
   },
   computed: mapGetters(['speed']),
   methods: {
