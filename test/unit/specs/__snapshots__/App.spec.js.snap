@@ -404,10 +404,10 @@ exports[`App.vue Test initial rendering 1`] = `
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title h5">Scanner</div>
-                            <div class="card-subtitle text-gray text-small">There are 0 unidentified objects within scanner range</div>
+                            <div class="card-subtitle text-gray text-small">There are 0 unidentified objects in range</div>
                         </div>
                         <div class="card-image">
-                            <img src="temporary_radar.jpg" class="img-responsive">
+                            <canvas id="scannerCanvas" width="340" height="170" style="border: 1px solid #d3d3d3;"></canvas>
                         </div>
                         <div class="card-body">
                             <div class="columns column col-12 action-panel">
@@ -417,7 +417,7 @@ exports[`App.vue Test initial rendering 1`] = `
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-primary">Send</button>
+                            <button class="btn btn-primary">Salvage</button>
                             <button class="btn btn-primary">Scan</button>
                         </div>
                     </div>
