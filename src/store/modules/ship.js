@@ -1,10 +1,6 @@
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 import * as types from '../mutation-types'
 import upgrades from './upgrades'
 import crew from './crew'
-
-// Vue.use(Vuex)
 
 const state = {
   distance: 0,

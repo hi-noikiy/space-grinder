@@ -13,7 +13,7 @@
         <input class="slider tooltip" v-model="drones" type="range" min="1" v-bind:max="maxDrones" step="1" @change="sliderChange" />
       </div>
       <div class="column col-12">
-        <span>{{drones}}/{{maxDrones}} @{{Math.exp(drones)+2500 | exponentialize}}g</span>
+        <span>{{drones}}/{{maxDrones}} @{{Math.exp(drones)+2500*drones | exponentialize}}g</span>
       </div>
     </div>
   </div>

@@ -19,9 +19,7 @@ export default {
   name: 'LiquidGasPanel',
   data () {
     return {
-      hydrogen: 33,
-      oxygen: 66,
-      carbon: 99
+
     }
   }
 }
