@@ -26,10 +26,10 @@ class Research {
 }
 
 class UnlockReq {
-  constructor () {
+  constructor (coulombs, minerals, upgrade) {
     this.coulumbs = coulombs
     this.minerals = minerals
-    this.upgrade = [{upgId: 0, upgCount: 0}]
+    this.upgrade = upgrade // [{upgId: 0, upgCount: 0}]
   }
 }
 
@@ -45,9 +45,9 @@ class ResearchStats {
 
 const state = {
   research: [
-    {
-      new Research(1, null, "testresearch", "improved gen upg 1")
-    }
+    new Research(1, null, 'testresearch', 'improved gen upg 1',
+    new UnlockReq(0, 0, [{upgId: 1, upgCount: 1}]),
+    new ResearchStats(0, 0, 5, 0, 0))
   ]
 }
 // [types.INCREMENT_HYDROGEN] (state, {amount}) {

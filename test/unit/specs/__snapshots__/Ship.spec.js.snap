@@ -16,12 +16,8 @@ exports[`Ship.vue matches snapshot 1`] = `
                 <!---->
             </div>
         </div>
-        <div class="column col-12">
-            <div class="columns">
-                <div class="column col-4"></div>
-                <div class="column col-4"></div>
-                <div class="column col-4"></div>
-            </div>
+        <div class="column col-12 sink">
+            <!---->
         </div>
     </div>
 </div>

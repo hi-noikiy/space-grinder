@@ -11,9 +11,10 @@ exports[`ScannerPanel.vue matches snapshot 1`] = `
     </div>
     <div class="card-body">
         <div class="columns column col-12 action-panel">
-            <div class="column ">
-                <input type="number">
+            <div class="column col-12">
+                <input type="range" min="1" max="20" step="1" value="0" class="slider tooltip">
             </div>
+            <div class="column col-12"><span>0/20 @1g</span></div>
         </div>
     </div>
     <div class="card-footer">

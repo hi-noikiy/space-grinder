@@ -411,9 +411,10 @@ exports[`App.vue Test initial rendering 1`] = `
                         </div>
                         <div class="card-body">
                             <div class="columns column col-12 action-panel">
-                                <div class="column ">
-                                    <input type="number">
+                                <div class="column col-12">
+                                    <input type="range" min="1" max="20" step="1" class="slider tooltip">
                                 </div>
+                                <div class="column col-12"><span>0/20 @1g</span></div>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -423,11 +424,17 @@ exports[`App.vue Test initial rendering 1`] = `
                     </div>
                 </div>
             </div>
-            <div class="column col-12">
+            <div class="column col-12 sink">
                 <div class="columns">
-                    <div class="column col-4"></div>
-                    <div class="column col-4"></div>
-                    <div class="column col-4"></div>
+                    <div class="column col-4"><span class="text-secondary">Hydrogen</span>
+                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                    </div>
+                    <div class="column col-4"><span class="text-secondary">Oxygen</span>
+                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                    </div>
+                    <div class="column col-4"><span class="text-secondary">Carbon</span>
+                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                    </div>
                 </div>
             </div>
         </div>
