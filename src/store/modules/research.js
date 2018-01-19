@@ -29,7 +29,7 @@ class UnlockReq {
   constructor () {
     this.coulumbs = coulombs
     this.minerals = minerals
-    this.upgrade = [upgId: 0, upgCount: 0]
+    this.upgrade = [{upgId: 0, upgCount: 0}]
   }
 }
 
