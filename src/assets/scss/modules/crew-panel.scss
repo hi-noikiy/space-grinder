@@ -1,0 +1,48 @@
+.crew-panel {
+  .popover {
+    display: block;
+  }
+  .popover-container {
+    // position: relative;
+    top: 150%!important;
+    height: 200px;
+  }
+  .accordion {
+    background-color: $secondary-color;
+  }
+  .accordion-body {
+    padding: 2px;
+  }
+  .tile {
+    padding: 2px;
+    margin-bottom: 4px;
+    background-color: darken($primary-color-light, 10%);
+    color: darken($light-color, 30%);
+  }
+  .canBuy:hover {
+    background-color: lighten($primary-color-light, 3%);
+  }
+  .canBuy {
+    background-color: $primary-color-light;
+    color: $light-color;
+  }
+}
+
+.portrait-list li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+.portrait {
+  margin: 2px;
+  height: 72px;
+  width: 72px;
+  background: $secondary-color;
+  border: $border;
+  border-radius: 3px;
+}
+
+.crewselected {
+  opacity: 0.5;
+}

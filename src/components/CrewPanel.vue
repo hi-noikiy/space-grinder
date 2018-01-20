@@ -1,28 +1,9 @@
 <template>
   <div class="columns crew-panel">
-    <div class="column col-4">
-       <transition name="slide">
-    <div class="container crew-select" v-if="showSelectionPanel" v-on:click="hideCrewSelectionPanel">
-      <figure
-      class="avatar avatar-xl mx-1 crew-avatar"
-      v-for="(member, index) in availableCrew"
-      :key="member.id"
-      v-bind:class="{crewselected: member.selected}"
-      v-on:click="selectCrewMember(index)">
-        <img :src="avatars[member.image]" v-bind:alt="member.desc">
-      </figure>
-    </div>
-    </transition>
-    </div>
-   <div class="column col-8">
-      <!-- <details class="accordion " open>
-          <summary  class="accordion-header">
-            <i class="icon icon-arrow-right mr-1"></i>
-            Crew Panel
-          </summary > -->
-          <div class="accordion-body">
-            <div v-for="(member, index) in crew" class=" popover popover-left" :key="member.id" >
-              <div class="tile tile-centered"  v-bind:class="{canBuy: (100 / member.unlock * coulombs) > 100}">
+    <div class="column col-8">
+    <div>
+          <div v-for="(member, index) in crew" class=" popover popover-right" :key="member.id" >
+            <div class="tile tile-centered"  v-bind:class="{canBuy: (100 / member.unlock * coulombs) > 100}">
                 <div class="tile-icon">
                   <figure class="avatar avatar-lg mx-1">
                     <img  v-if="member !== null" :src="avatars[member.image]"  v-bind:alt="member.desc">
@@ -39,22 +20,35 @@
                     <i class="icon icon-plus"></i>
                   </button>
                 </div>
-              </div>
-               <div class="popover-container" v-if="member.stats !== undefined">
-                <div class="card">
-                  <div class="card-header">
-                    <span class="text-bold">{{member.name}}</span>
-                  </div>
-                  <div class="card-body">
-                    <span v-html="member.description"></span>
-                  </div>
-                  <div class="card-footer">
-                  </div>
+            </div>
+             <div class="popover-container" v-if="member.stats !== undefined">
+              <div class="card">
+                <div class="card-header">
+                  <span class="text-bold">{{member.name}}</span>
+                </div>
+                <div class="card-body">
+                  <span v-html="member.description"></span>
+                </div>
+                <div class="card-footer">
                 </div>
               </div>
             </div>
           </div>
-         <!-- </details > -->
+        </div>
+      </div>
+   <div class="column col-4">
+<transition name="slide">
+          <div class="container crew-select" v-if="showSelectionPanel" v-on:click="hideCrewSelectionPanel">
+            <figure
+              class="avatar avatar-xl mx-1 crew-avatar"
+              v-for="(member, index) in availableCrew"
+              :key="member.id"
+              v-bind:class="{crewselected: member.selected}"
+              v-on:click="selectCrewMember(index)">
+              <img :src="avatars[member.image]" v-bind:alt="member.desc">
+            </figure>
+           </div>
+        </transition>
       </div>
     </div>
 </template>

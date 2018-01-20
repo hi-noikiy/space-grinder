@@ -1,7 +1,8 @@
 import * as types from '../mutation-types'
+import ship from './ship'
 
 class Research {
-  constructor (id, image, desc, name, unlockReq, stats) {
+  constructor (id, image, desc, name, baseCost, unlockReq, stats) {
     this.id = id
     this.image = image
     this.desc = desc
@@ -9,6 +10,7 @@ class Research {
     this.unlockReq = unlockReq
     this.stats = stats
     this.level = 0
+    this.baseCost = baseCost
   }
 
   get description () {
@@ -45,20 +47,27 @@ class ResearchStats {
 
 const state = {
   research: [
-    new Research(1, null, 'testresearch', 'improved gen upg 1',
-    new UnlockReq(0, 0, [{upgId: 1, upgCount: 1}]),
-    new ResearchStats(0, 0, 5, 0, 0))
+    new Research(1, null, 'testresearch', 'improved gen upg 1', 2500,
+      new UnlockReq(0, 0, [{
+        upgId: 1,
+        upgCount: 1
+      }]),
+      new ResearchStats(0, 0, 5, 0, 0))
   ]
 }
-// [types.INCREMENT_HYDROGEN] (state, {amount}) {
-//   state.hydrogen += amount
-// }
+
 const mutations = {
+  [types.BUY_RESEARCH] (state, { id }) {
+    let res = state.research.find((r) => r.id === id)
+    if (ship.state.minerals > (res.baseCost * res.level)) {
+      res.level++
+    }
+  }
+
 }
 
 // decrementMinerals: ({ commit }, amount) => commit(types.DECREMENT_MINERALS, {amount: amount})
-const actions = {
-}
+const actions = {}
 
 const getters = {}
 

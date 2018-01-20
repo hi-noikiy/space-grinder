@@ -1,0 +1,21 @@
+.upgrade-panel {
+  background-color: $secondary-color;
+  ul {
+    margin: 0;
+    padding: 2px;
+    li {
+      list-style: none;
+      padding: 2px 6px;
+      margin-top: 0.1rem;
+      background-color: darken($primary-color-light, 10%);
+      color: darken($light-color, 30%);
+    }
+    .canBuy:hover {
+      background-color: lighten($primary-color-light, 3%);
+    }
+    .canBuy {
+      background-color: $primary-color-light;
+      color: $light-color;
+    }
+  }
+}

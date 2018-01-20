@@ -96,7 +96,7 @@ export default {
   #scannerCanvas {
     width: 100% ;
     height: 170px;
-    background-color: red;
+    background-color: gray;
   }
 </style>
 

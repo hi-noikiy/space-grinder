@@ -12,7 +12,11 @@
         <div class="column col-3">
           <CrewPanel />
           <ScannerPanel />
+
         </div>
+      </div>
+      <div class="column col-12 ">
+        <MenuBarPanel/>
       </div>
       <div class="column col-12 sink">
         <LGP/>
@@ -24,9 +28,8 @@
 <script>
 import Hud from './Hud'
 import LGP from './LiquidGasPanel'
-import ShipUpgradePanel from './ShipUpgradePanel'
-import CrewPanel from './CrewPanel'
-import ScannerPanel from './ScannerPanel'
+
+import MenuBarPanel from './MenuBarPanel'
 import { mapGetters, mapActions } from 'vuex'
 import raf from '../rAF'
 
@@ -44,10 +47,8 @@ export default {
   },
   components: {
     Hud,
-    ShipUpgradePanel,
-    CrewPanel,
-    ScannerPanel,
-    LGP
+    LGP,
+    MenuBarPanel
   },
   computed: mapGetters(['speed']),
   methods: {
@@ -100,5 +101,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+.sidebar {
+  background-color: aliceblue;
+}
 </style>

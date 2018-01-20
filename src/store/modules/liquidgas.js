@@ -3,7 +3,10 @@ import * as types from '../mutation-types'
 const state = {
   hydrogen: 33,
   oxygen: 66,
-  carbon: 99
+  carbon: 99,
+  hydrogenCapacity: 100,
+  oxygenCapacity: 100,
+  carbonCapacity: 100
 }
 const mutations = {
   [types.INCREMENT_HYDROGEN] (state, {amount}) {
@@ -26,7 +29,6 @@ const mutations = {
   }
 }
 
-// decrementMinerals: ({ commit }, amount) => commit(types.DECREMENT_MINERALS, {amount: amount})
 const actions = {
   decrementHydrogen: ({ commit }, amount) => commit(types.DECREMENT_HYDROGEN, {amount: amount}),
   decrementOxygen: ({ commit }, amount) => commit(types.DECREMENT_OXYGEN, {amount: amount}),
@@ -36,7 +38,14 @@ const actions = {
   incrementCarbon: ({ commit }, amount) => commit(types.INCREMENT_CARBON, {amount: amount})
 }
 
-const getters = {}
+const getters = {
+  hydrogen: state => state.hydrogen,
+  oxygen: state => state.oxygen,
+  carbon: state => state.carbon,
+  hydrogenCapacity: state => state.hydrogenCapacity,
+  oxygenCapacity: state => state.oxygenCapacity,
+  carbonCapacity: state => state.carbonCapacity
+}
 
 export default {
   state,

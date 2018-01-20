@@ -4,128 +4,54 @@
 
 $border: 1px solid $primary-color-light;
 
-html, body, #app {
-    background: #1C1F24;
-    // color: $color;
-    height: 100%;
-    width: 100%;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin:0;
+@import "./modules/upgrade-panel.scss";
+@import "./modules/hud.scss";
+@import "./modules/crew-panel.scss";
+@import "./modules/side-panel.scss";
+
+
+html,
+body,
+#app {
+  background: #1C1F24; // color: $color;
+  height: 100%;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
 }
 
-.hud {
-    // border: $border;
-    background-color: $secondary-color;
-    padding: 4px;
-    // color:$colorAccent;
-  }
-
-  .heading {
-    background: none;
-    margin-top: 0;
-    border: 0;
-   color:$dark-color;
+.heading {
+  background: none;
+  margin-top: 0;
+  border: 0;
+  color: $dark-color;
 }
 
-
-.crew-panel {
-  .popover {
-    display: block;
-  }
-  .popover-container {
-    // position: relative;
-    top: 150%!important;
-    height: 200px;
-  }
-  .accordion {
-    background-color: $secondary-color;
-  }
-  .accordion-body{
-    padding: 2px;
-
-  }
-
-  .tile{
-    padding: 2px;
-    margin-bottom: 4px;
-    background-color: darken($primary-color-light, 10%);
-    color:darken($light-color, 30%);
-
-
-  }
-  .canBuy:hover {
-    background-color: lighten($primary-color-light, 3%);
-  }
-  .canBuy {
-      background-color: $primary-color-light;
-      color:$light-color;
-  }
-
-
+.upgrade-panel,
+.crew-panel,
+.sidebar {
+  font-size: 0.6rem;
+  margin-top: 4%;
 }
 
-.upgrade-panel{
-  background-color: $secondary-color;
-  ul {
-    margin: 0;
-    padding: 2px;
-    li {
-      list-style: none;
-      padding: 2px 6px;
-      margin-top: 0.1rem;
-      background-color: darken($primary-color-light, 10%);
-      color:darken($light-color, 30%);
-  }
-  .canBuy:hover {
-      background-color: lighten($primary-color-light, 3%);
-  }
-  .canBuy {
-      background-color: $primary-color-light;
-      color:$light-color;
-  }
-}
-
-}
-.upgrade-panel, .crew-panel  {
-    font-size: 0.6rem;
-    margin-top: 4%;
-}
 #main-window {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
-
-.portrait-list  li {
-    display: inline;
-    list-style-type: none;
-    padding-right: 20px;
-}
-.portrait{
-        margin: 2px;
-        height: 72px;
-        width: 72px;
-        background: $secondary-color;
-        border: $border;
-        border-radius: 3px;
-    }
-
-
-.crewselected {
-    opacity: 0.5;
-}
-
 
 .slide-enter-active {
   animation: slide-in .1s;
 }
+
 .slide-leave-active {
   animation: slide-in .1s reverse;
 }
+
 @keyframes slide-in {
   0% {
     transform: scale(0);
@@ -139,7 +65,7 @@ html, body, #app {
   font-size: 90%;
 }
 
-.sink{
+.sink {
   padding: 10px;
   position: absolute;
   bottom: 0;
