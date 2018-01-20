@@ -1,6 +1,7 @@
 <template>
     <div class='columns col-online hud'>
       <div id="v" class='column col-1'>
+        <font-awesome-icon :icon="['fas', 'rocket']" />
         <span class="tooltip tooltip-bottom" v-bind:data-tooltip="`Cell Voltage: ${voltage}V`">
           {{voltage | exponentialize}}V
         </span>

@@ -8,8 +8,15 @@ import './assets/scss/index.scss'
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+/**
+ * Import Font Awesome
+ */
+import fontawesome from '@fortawesome/fontawesome'
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import solid from '@fortawesome/fontawesome-pro-solid'
+fontawesome.library.add(solid) // Use any icon from the Solid style
 
-// import utility from './store/utility'
+Vue.component('font-awesome-icon', FontAwesomeIcon) // Use the icon component anywhere in the app
 
 Vue.filter('exponentialize', function (value) {
   if (value === undefined) return 'udef'

@@ -2,7 +2,8 @@
 
 exports[`Hud.vue matches snapshot 1`] = `
 <div class="columns col-online hud">
-    <div id="v" class="column col-1"><span data-tooltip="Cell Voltage: 2V" class="tooltip tooltip-bottom">
+    <div id="v" class="column col-1">
+        <font-awesome-icon icon="fas,rocket"></font-awesome-icon> <span data-tooltip="Cell Voltage: 2V" class="tooltip tooltip-bottom">
       2V
     </span></div>
     <div id="mah" class="column col-1"><span data-tooltip="AmpHour Capacity: 2mAh" class="tooltip tooltip-bottom">

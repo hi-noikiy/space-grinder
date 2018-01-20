@@ -6,13 +6,9 @@
       </div>
       <div class="column col-12 columns">
         <div class="column col-2">
-          <ShipUpgradePanel/>
         </div>
         <div class="column col-7"></div>
         <div class="column col-3">
-          <CrewPanel />
-          <ScannerPanel />
-
         </div>
       </div>
       <div class="column col-12 ">
@@ -28,7 +24,6 @@
 <script>
 import Hud from './Hud'
 import LGP from './LiquidGasPanel'
-
 import MenuBarPanel from './MenuBarPanel'
 import { mapGetters, mapActions } from 'vuex'
 import raf from '../rAF'

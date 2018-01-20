@@ -3,13 +3,17 @@
   <!-- off-screen toggle button -->
   <div class="col-12 centered">
     <a class="off-canvas-toggle btn btn-primary btn-action float-right" href="#ship-upgrade-panel">
-    <i class="icon icon-upload"></i>
+    <font-awesome-icon :icon="['fas', 'chevron-square-up']" />
   </a>
   <a class="off-canvas-toggle btn btn-primary btn-action float-right" href="#crew-panel">
-    <i class="icon icon-people"></i>
+    <font-awesome-icon :icon="['fas', 'user']" />
   </a>
   <a class="off-canvas-toggle btn btn-primary btn-action float-right" href="#scanner-panel">
-    <i class="icon icon-search"></i>
+    <font-awesome-icon :icon="['fas', 'compass']" />
+  </a>
+
+  <a class="off-canvas-toggle btn btn-primary btn-action float-right" href="#research-panel">
+    <font-awesome-icon :icon="['fas', 'flask']" />
   </a>
   </div>
 
@@ -30,7 +34,7 @@
 
   <div class="off-canvas-content">
     <!-- off-screen content -->
-    off screen content
+
   </div>
 </div>
 </template><script>

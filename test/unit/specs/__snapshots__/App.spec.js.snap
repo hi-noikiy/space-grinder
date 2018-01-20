@@ -6,7 +6,8 @@ exports[`App.vue Test initial rendering 1`] = `
         <div class="columns">
             <div class="column col-12">
                 <div class="columns col-online hud">
-                    <div id="v" class="column col-1"><span data-tooltip="Cell Voltage: 2V" class="tooltip tooltip-bottom">
+                    <div id="v" class="column col-1">
+                        <font-awesome-icon icon="fas,rocket"></font-awesome-icon> <span data-tooltip="Cell Voltage: 2V" class="tooltip tooltip-bottom">
       2V
     </span></div>
                     <div id="mah" class="column col-1"><span data-tooltip="AmpHour Capacity: 2mAh" class="tooltip tooltip-bottom">
@@ -33,407 +34,515 @@ exports[`App.vue Test initial rendering 1`] = `
                 </div>
             </div>
             <div class="column col-12 columns">
-                <div class="column col-2">
-                    <div class="columns upgradepanel">
-                        <div class="column col-12">
-                            <details open="open" class="accordion upgrade-panel">
-                                <summary class="accordion-header">
-                                    <i class="icon icon-arrow-right mr-1"></i>
-                                    Generator Upgrades
-                                </summary>
-                                <div class="accordion-body">
-                                    <ul class="upgrades">
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">gen upg 1</div>
-                                                <div class="column col-6 text-small"><span class="float-right">10g</span></div>
-                                                <div class="column col-5 text-small">0C</div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+100kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">gen upg 2</div>
-                                                <div class="column col-6 text-small"><span class="float-right">125g</span></div>
-                                                <div class="column col-5 text-small">0C</div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+125kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">gen upg 3</div>
-                                                <div class="column col-6 text-small"><span class="float-right">600g</span></div>
-                                                <div class="column col-5 text-small">0C</div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+150kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">gen upg 4</div>
-                                                <div class="column col-6 text-small"><span class="float-right">1800g</span></div>
-                                                <div class="column col-5 text-small">0C</div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+175kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </details>
-                            <details class="accordion upgrade-panel">
-                                <summary class="accordion-header">
-                                    <i class="icon icon-arrow-right mr-1"></i>
-                                    Capacity Upgrades
-                                </summary>
-                                <div class="accordion-body">
-                                    <ul class="upgrades">
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">stor upg 1</div>
-                                                <div class="column col-6 text-small"><span class="float-right">100g</span></div>
-                                                <!---->
-                                                <div class="column col-2 text-small">0V</div>
-                                                <div class="column col-3 text-small">0mAh</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+200kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">stor upg 2</div>
-                                                <div class="column col-6 text-small"><span class="float-right">1250g</span></div>
-                                                <!---->
-                                                <div class="column col-2 text-small">0V</div>
-                                                <div class="column col-3 text-small">0mAh</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+225kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">stor upg 3</div>
-                                                <div class="column col-6 text-small"><span class="float-right">6000g</span></div>
-                                                <!---->
-                                                <div class="column col-2 text-small">0V</div>
-                                                <div class="column col-3 text-small">0mAh</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+250kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">stor upg 4</div>
-                                                <div class="column col-6 text-small"><span class="float-right">18000g</span></div>
-                                                <!---->
-                                                <div class="column col-2 text-small">0V</div>
-                                                <div class="column col-3 text-small">0mAh</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small">+275kg</div>
-                                                <!---->
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </details>
-                            <details class="accordion upgrade-panel">
-                                <summary class="accordion-header">
-                                    <i class="icon icon-arrow-right mr-1"></i>
-                                    Hull Upgrades
-                                </summary>
-                                <div class="accordion-body">
-                                    <ul class="upgrades">
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">hull upg 1</div>
-                                                <div class="column col-6 text-small"><span class="float-right">100g</span></div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-5 text-small">-0kg</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small"></div>
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">hull upg 2</div>
-                                                <div class="column col-6 text-small"><span class="float-right">1250g</span></div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-5 text-small">-0kg</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small"></div>
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">hull upg 3</div>
-                                                <div class="column col-6 text-small"><span class="float-right">6000g</span></div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-5 text-small">-0kg</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small"></div>
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="canBuy">
-                                            <div class="columns">
-                                                <div class="column col-6 text-bold">hull upg 4</div>
-                                                <div class="column col-6 text-small"><span class="float-right">18000g</span></div>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <div class="column col-5 text-small">-0kg</div>
-                                                <!---->
-                                                <div class="column col-3 col-ml-auto text-left text-small"></div>
-                                                <div class="column col-2 col-ml-auto text-left">#0</div>
-                                                <div class="column col-2 col-ml-auto text-left">
-                                                    <button class="btn btn-primary btn-action btn-sm disabled"><span>T1</span>
-                                                        <!---->
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-                </div>
+                <div class="column col-2"></div>
                 <div class="column col-7"></div>
-                <div class="column col-3">
-                    <div class="columns crew-panel">
-                        <div class="column col-4">
-                            <!---->
-                        </div>
-                        <div class="column col-8">
-                            <div class="accordion-body">
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered canBuy">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <!---->
-                                            <div class="tile-subtitle ">Unlocked</div>
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
+                <div class="column col-3"></div>
+            </div>
+            <div class="column col-12 ">
+                <div class="off-canvas">
+                    <div class="col-12 centered">
+                        <a href="#ship-upgrade-panel" class="off-canvas-toggle btn btn-primary btn-action float-right">
+                            <font-awesome-icon icon="fas,chevron-square-up"></font-awesome-icon>
+                        </a>
+                        <a href="#crew-panel" class="off-canvas-toggle btn btn-primary btn-action float-right">
+                            <font-awesome-icon icon="fas,user"></font-awesome-icon>
+                        </a>
+                        <a href="#scanner-panel" class="off-canvas-toggle btn btn-primary btn-action float-right">
+                            <font-awesome-icon icon="fas,compass"></font-awesome-icon>
+                        </a>
+                        <a href="#research-panel" class="off-canvas-toggle btn btn-primary btn-action float-right">
+                            <font-awesome-icon icon="fas,flask"></font-awesome-icon>
+                        </a>
+                    </div>
+                    <div id="ship-upgrade-panel" class="off-canvas-sidebar">
+                        <div class="columns upgradepanel">
+                            <div class="column col-12">
+                                <details open="open" class="accordion upgrade-panel">
+                                    <summary class="accordion-header">
+                                        <i class="icon icon-arrow-right mr-1"></i>
+                                        Generator Upgrades
+                                    </summary>
+                                    <div class="accordion-body">
+                                        <ul class="upgrades">
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,microchip"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Solar Cell MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">10g</div>
+                                                        <div class="column col-4 text-small">0C</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+100kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,microchip"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Bio Generator MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">125g</div>
+                                                        <div class="column col-4 text-small">0C</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+125kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,microchip"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Static Charger MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">600g</div>
+                                                        <div class="column col-4 text-small">0C</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+150kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,microchip"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Fission Core MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">1800g</div>
+                                                        <div class="column col-4 text-small">0C</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+175kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!---->
-                                </div>
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <div class="tile-subtitle ">0.10416666666666667 %</div>
-                                            <!---->
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link disabled">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
+                                </details>
+                                <details class="accordion upgrade-panel">
+                                    <summary class="accordion-header">
+                                        <i class="icon icon-arrow-right mr-1"></i>
+                                        Capacity Upgrades
+                                    </summary>
+                                    <div class="accordion-body">
+                                        <ul class="upgrades">
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,battery-bolt"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Alloy Capacitor MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">100g</div>
+                                                        <!---->
+                                                        <div class="column col-2 text-small">0V</div>
+                                                        <div class="column col-2 text-small">0mAh</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+200kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,battery-bolt"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex High Capcacity Cells MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">1250g</div>
+                                                        <!---->
+                                                        <div class="column col-2 text-small">0V</div>
+                                                        <div class="column col-2 text-small">0mAh</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+225kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,battery-bolt"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Temperature Controller MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">6000g</div>
+                                                        <!---->
+                                                        <div class="column col-2 text-small">0V</div>
+                                                        <div class="column col-2 text-small">0mAh</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+250kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,battery-bolt"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Ion Controller MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">18000g</div>
+                                                        <!---->
+                                                        <div class="column col-2 text-small">0V</div>
+                                                        <div class="column col-2 text-small">0mAh</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small">+275kg</div>
+                                                        <!---->
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!---->
-                                </div>
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <div class="tile-subtitle ">0.0010416666666666667 %</div>
-                                            <!---->
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link disabled">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
+                                </details>
+                                <details class="accordion upgrade-panel">
+                                    <summary class="accordion-header">
+                                        <i class="icon icon-arrow-right mr-1"></i>
+                                        Hull Upgrades
+                                    </summary>
+                                    <div class="accordion-body">
+                                        <ul class="upgrades">
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,rocket"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Reinforced H-Beams MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">100g</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-4 text-small">-0kg</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small"></div>
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,rocket"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Double Layer Glass MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">1250g</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-4 text-small">-0kg</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small"></div>
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,rocket"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Shielding MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">6000g</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-4 text-small">-0kg</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small"></div>
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="canBuy">
+                                                <div class="columns">
+                                                    <div class="column col-1">
+                                                        <div class=" text-bold text-large text-left">
+                                                            <font-awesome-icon icon="fas,rocket"></font-awesome-icon>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column columns  col-9">
+                                                        <div class="column col-10 text-bold">Hattrex Super Thin Walls MkI</div>
+                                                        <div class="column col-2 col-ml-auto text-left">#0</div>
+                                                        <div class="column col-4 text-small">18000g</div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="column col-4 text-small">-0kg</div>
+                                                        <!---->
+                                                        <div class="column col-3 col-ml-auto text-left text-small"></div>
+                                                    </div>
+                                                    <div class="column col-1 col-ml-auto">
+                                                        <button class="btn btn-primary btn-action btn-lg float-right disabled"><span>Mk I</span>
+                                                            <!---->
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!---->
-                                </div>
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <div class="tile-subtitle ">0.000010416666666666668 %</div>
-                                            <!---->
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link disabled">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!---->
-                                </div>
-                                <div class=" popover popover-left">
-                                    <div class="tile tile-centered">
-                                        <div class="tile-icon">
-                                            <figure class="avatar avatar-lg mx-1">
-                                                <img src="default.png" alt="select a crewmember">
-                                            </figure>
-                                        </div>
-                                        <div class="tile-content">
-                                            <div class="tile-title text-bold">Select member</div>
-                                            <!---->
-                                            <div class="tile-subtitle ">1.0416666666666667e-7 %</div>
-                                            <!---->
-                                        </div>
-                                        <div class="tile-action">
-                                            <button class="btn btn-link disabled">
-                                                <i class="icon icon-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!---->
-                                </div>
+                                </details>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title h5">Scanner</div>
-                            <div class="card-subtitle text-gray text-small">There are 0 unidentified objects in range</div>
-                        </div>
-                        <div class="card-image">
-                            <canvas id="scannerCanvas" width="340" height="170" style="border: 1px solid #d3d3d3;"></canvas>
-                        </div>
-                        <div class="card-body">
-                            <div class="columns column col-12 action-panel">
-                                <div class="column col-12">
-                                    <input type="range" min="1" max="20" step="1" class="slider tooltip">
+                    <div id="crew-panel" class="off-canvas-sidebar">
+                        <div class="columns crew-panel">
+                            <div class="column col-8">
+                                <div>
+                                    <div class=" popover popover-right">
+                                        <div class="tile tile-centered canBuy">
+                                            <div class="tile-icon">
+                                                <figure class="avatar avatar-lg mx-1">
+                                                    <img src="default.png" alt="select a crewmember">
+                                                </figure>
+                                            </div>
+                                            <div class="tile-content">
+                                                <div class="tile-title text-bold">Select member</div>
+                                                <!---->
+                                                <!---->
+                                                <div class="tile-subtitle ">Unlocked</div>
+                                            </div>
+                                            <div class="tile-action">
+                                                <button class="btn btn-link">
+                                                    <i class="icon icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class=" popover popover-right">
+                                        <div class="tile tile-centered">
+                                            <div class="tile-icon">
+                                                <figure class="avatar avatar-lg mx-1">
+                                                    <img src="default.png" alt="select a crewmember">
+                                                </figure>
+                                            </div>
+                                            <div class="tile-content">
+                                                <div class="tile-title text-bold">Select member</div>
+                                                <!---->
+                                                <div class="tile-subtitle ">0.10416666666666667 %</div>
+                                                <!---->
+                                            </div>
+                                            <div class="tile-action">
+                                                <button class="btn btn-link disabled">
+                                                    <i class="icon icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class=" popover popover-right">
+                                        <div class="tile tile-centered">
+                                            <div class="tile-icon">
+                                                <figure class="avatar avatar-lg mx-1">
+                                                    <img src="default.png" alt="select a crewmember">
+                                                </figure>
+                                            </div>
+                                            <div class="tile-content">
+                                                <div class="tile-title text-bold">Select member</div>
+                                                <!---->
+                                                <div class="tile-subtitle ">0.0010416666666666667 %</div>
+                                                <!---->
+                                            </div>
+                                            <div class="tile-action">
+                                                <button class="btn btn-link disabled">
+                                                    <i class="icon icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class=" popover popover-right">
+                                        <div class="tile tile-centered">
+                                            <div class="tile-icon">
+                                                <figure class="avatar avatar-lg mx-1">
+                                                    <img src="default.png" alt="select a crewmember">
+                                                </figure>
+                                            </div>
+                                            <div class="tile-content">
+                                                <div class="tile-title text-bold">Select member</div>
+                                                <!---->
+                                                <div class="tile-subtitle ">0.000010416666666666668 %</div>
+                                                <!---->
+                                            </div>
+                                            <div class="tile-action">
+                                                <button class="btn btn-link disabled">
+                                                    <i class="icon icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class=" popover popover-right">
+                                        <div class="tile tile-centered">
+                                            <div class="tile-icon">
+                                                <figure class="avatar avatar-lg mx-1">
+                                                    <img src="default.png" alt="select a crewmember">
+                                                </figure>
+                                            </div>
+                                            <div class="tile-content">
+                                                <div class="tile-title text-bold">Select member</div>
+                                                <!---->
+                                                <div class="tile-subtitle ">1.0416666666666667e-7 %</div>
+                                                <!---->
+                                            </div>
+                                            <div class="tile-action">
+                                                <button class="btn btn-link disabled">
+                                                    <i class="icon icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
                                 </div>
-                                <div class="column col-12"><span>0/20 @1g</span></div>
+                            </div>
+                            <div class="column col-4">
+                                <!---->
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <button class="btn btn-primary">Salvage</button>
-                            <button class="btn btn-primary">Scan</button>
+                    </div>
+                    <div id="scanner-panel" class="off-canvas-sidebar">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title h5">Scanner</div>
+                                <div class="card-subtitle text-gray text-small">There are 0 unidentified objects in range</div>
+                            </div>
+                            <div class="card-image">
+                                <canvas id="scannerCanvas" width="340" height="170" style="border: 1px solid #d3d3d3;"></canvas>
+                            </div>
+                            <div class="card-body">
+                                <div class="columns column col-12 action-panel">
+                                    <div class="column col-12">
+                                        <input type="range" min="1" max="20" step="1" class="slider tooltip">
+                                    </div>
+                                    <div class="column col-12"><span>0/20 @1g</span></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Salvage</button>
+                                <button class="btn btn-primary">Scan</button>
+                            </div>
                         </div>
                     </div>
+                    <a href="#close" class="off-canvas-overlay"></a>
+                    <div class="off-canvas-content"></div>
                 </div>
             </div>
             <div class="column col-12 sink">
                 <div class="columns">
                     <div class="column col-4"><span class="text-secondary">Hydrogen</span>
-                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                        <meter value="33" optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
                     </div>
                     <div class="column col-4"><span class="text-secondary">Oxygen</span>
-                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                        <meter value="66" optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
                     </div>
                     <div class="column col-4"><span class="text-secondary">Carbon</span>
-                        <meter optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
+                        <meter value="99" optimum="90" min="0" max="100" low="30" high="80" class="meter"></meter>
                     </div>
                 </div>
             </div>

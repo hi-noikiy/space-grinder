@@ -9,8 +9,8 @@
           </summary >
           <div class="accordion-body">
             <ul class="upgrades">
-                <li v-for="upgrade in generatorUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyGeneratorUpg(upgrade.id)}"  >
-                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" />
+                <li v-for="upgrade in generatorUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyUpg(upgrade.id)}"  >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" v-bind:canBuyUpgradeFunction="canBuyUpg" />
                 </li>
             </ul>
           </div>
@@ -23,8 +23,8 @@
           </summary>
           <div class="accordion-body">
             <ul class="upgrades">
-                <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyStorageUpg(upgrade.id)}" >
-                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" />
+                <li v-for="upgrade in storageUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyUpg(upgrade.id)}" >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" v-bind:canBuyUpgradeFunction="canBuyUpg" />
                 </li>
             </ul>
           </div>
@@ -37,8 +37,8 @@
           </summary>
           <div class="accordion-body">
             <ul class="upgrades">
-                <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyHullUpg(upgrade.id)}" >
-                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades"/>
+                <li v-for="upgrade in hullUpgrades" v-bind:key="upgrade.id" v-bind:class="{canBuy: canBuyUpg(upgrade.id)}" >
+                    <UpgradeButton v-bind:upgrade="upgrade" v-bind:tiers="upgradeTiers" v-bind:buyUpgradeFunction="buyUpgrades" v-bind:canBuyUpgradeFunction="canBuyUpg" />
                 </li>
             </ul>
           </div>
@@ -67,7 +67,8 @@ export default {
     'storageUpgrades',
     'hullUpgrades',
     'minerals',
-    'upgradeTiers'
+    'upgradeTiers',
+    'upgrades'
   ]),
   methods: {
     ...mapActions([
@@ -80,16 +81,8 @@ export default {
       'decrementMass',
       'buyUpgradeUpgrade'
     ]),
-    canBuyGeneratorUpg: function (id) {
-      var upg = this.generatorUpgrades.filter(u => u.id === id)[0]
-      return (upg.baseCost * Math.pow(1.15, upg.upgCount)) < this.minerals
-    },
-    canBuyStorageUpg: function (id) {
-      var upg = this.storageUpgrades.filter(u => u.id === id)[0]
-      return (upg.baseCost * Math.pow(1.15, upg.upgCount)) < this.minerals
-    },
-    canBuyHullUpg: function (id) {
-      var upg = this.hullUpgrades.filter(u => u.id === id)[0]
+    canBuyUpg: function (id) {
+      var upg = this.upgrades.filter(u => u.id === id)[0]
       return (upg.baseCost * Math.pow(1.15, upg.upgCount)) < this.minerals
     }
   }

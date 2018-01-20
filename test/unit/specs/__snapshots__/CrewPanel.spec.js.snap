@@ -2,12 +2,9 @@
 
 exports[`CrewPanel.vue matches snapshot 1`] = `
 <div class="columns crew-panel">
-    <div class="column col-4">
-        <!---->
-    </div>
     <div class="column col-8">
-        <div class="accordion-body">
-            <div class=" popover popover-left">
+        <div>
+            <div class=" popover popover-right">
                 <div class="tile tile-centered canBuy">
                     <div class="tile-icon">
                         <figure class="avatar avatar-lg mx-1">
@@ -28,7 +25,7 @@ exports[`CrewPanel.vue matches snapshot 1`] = `
                 </div>
                 <!---->
             </div>
-            <div class=" popover popover-left">
+            <div class=" popover popover-right">
                 <div class="tile tile-centered">
                     <div class="tile-icon">
                         <figure class="avatar avatar-lg mx-1">
@@ -49,7 +46,7 @@ exports[`CrewPanel.vue matches snapshot 1`] = `
                 </div>
                 <!---->
             </div>
-            <div class=" popover popover-left">
+            <div class=" popover popover-right">
                 <div class="tile tile-centered">
                     <div class="tile-icon">
                         <figure class="avatar avatar-lg mx-1">
@@ -70,7 +67,7 @@ exports[`CrewPanel.vue matches snapshot 1`] = `
                 </div>
                 <!---->
             </div>
-            <div class=" popover popover-left">
+            <div class=" popover popover-right">
                 <div class="tile tile-centered">
                     <div class="tile-icon">
                         <figure class="avatar avatar-lg mx-1">
@@ -91,7 +88,7 @@ exports[`CrewPanel.vue matches snapshot 1`] = `
                 </div>
                 <!---->
             </div>
-            <div class=" popover popover-left">
+            <div class=" popover popover-right">
                 <div class="tile tile-centered">
                     <div class="tile-icon">
                         <figure class="avatar avatar-lg mx-1">
@@ -113,6 +110,9 @@ exports[`CrewPanel.vue matches snapshot 1`] = `
                 <!---->
             </div>
         </div>
+    </div>
+    <div class="column col-4">
+        <!---->
     </div>
 </div>
 `;

@@ -4,19 +4,21 @@ import * as types from '../mutation-types'
 import ship from './ship'
 
 class Upgrade {
-  constructor (category, id, name, baseCost) {
+  constructor (category, id, name, baseCost, icon, manufacturer) {
     this.category = category
     this.id = id
     this.name = name
     this.baseCost = baseCost
     this.upgCount = 0
     this.level = 1
+    this.icon = icon
+    this.manufacturer = manufacturer
   }
 }
 
 class GeneratorUpgrade extends Upgrade {
-  constructor (category, id, name, baseCost, baseProd, massIncrease) {
-    super(category, id, name, baseCost)
+  constructor (category, id, name, baseCost, icon, manufacturer, baseProd, massIncrease) {
+    super(category, id, name, baseCost, icon, manufacturer)
     this.massIncrease = 100 / 4 * massIncrease
     this.baseProd = baseProd
   }
@@ -26,8 +28,8 @@ class GeneratorUpgrade extends Upgrade {
 }
 
 class CapacityUpgrade extends Upgrade {
-  constructor (category, id, name, baseCost, massIncrease, voltIncrease, ampIncrease) {
-    super(category, id, name, baseCost)
+  constructor (category, id, name, baseCost, icon, manufacturer, massIncrease, voltIncrease, ampIncrease) {
+    super(category, id, name, baseCost, icon, manufacturer)
     this.massIncrease = 100 / 4 * massIncrease
     this.voltIncrease = voltIncrease
     this.ampIncrease = ampIncrease
@@ -35,29 +37,31 @@ class CapacityUpgrade extends Upgrade {
 }
 
 class HullUpgrade extends Upgrade {
-  constructor (category, id, name, baseCost, massReduction) {
-    super(category, id, name, baseCost)
+  constructor (category, id, name, baseCost, icon, manufacturer, massReduction) {
+    super(category, id, name, baseCost, icon, manufacturer)
     this.massReduction = massReduction
   }
 }
 
 const state = {
+  manufacturers: ['Hattrex', 'Alphgro', 'Linpoly', 'Nitranet', 'Altreo', 'Mudeno', 'Enthsa', 'Obtax', 'Shav', 'Octood', 'Curavi', 'Tyrcor'],
   upgrades: [
-    new GeneratorUpgrade(1, 1001, 'gen upg 1', 10, 2, 4),
-    new GeneratorUpgrade(1, 1002, 'gen upg 2', 125, 6, 5),
-    new GeneratorUpgrade(1, 1003, 'gen upg 3', 600, 20, 6),
-    new GeneratorUpgrade(1, 1004, 'gen upg 4', 1800, 65, 7),
+    new GeneratorUpgrade(1, 1001, 'Solar Cell', 10, ['fas', 'microchip'], 0, 2, 4),
+    new GeneratorUpgrade(1, 1002, 'Bio Generator', 125, ['fas', 'microchip'], 0, 6, 5),
+    new GeneratorUpgrade(1, 1003, 'Static Charger', 600, ['fas', 'microchip'], 0, 20, 6),
+    new GeneratorUpgrade(1, 1004, 'Fission Core', 1800, ['fas', 'microchip'], 0, 65, 7),
 
-    new CapacityUpgrade(2, 2001, 'stor upg 1', 100, 8, 2, 2),
-    new CapacityUpgrade(2, 2002, 'stor upg 2', 1250, 9, 6, 6),
-    new CapacityUpgrade(2, 2003, 'stor upg 3', 6000, 10, 20, 20),
-    new CapacityUpgrade(2, 2004, 'stor upg 4', 18000, 11, 65, 65),
+    new CapacityUpgrade(2, 2001, 'Alloy Capacitor', 100, ['fas', 'battery-bolt'], 0, 8, 2, 2),
+    new CapacityUpgrade(2, 2002, 'High Capcacity Cells', 1250, ['fas', 'battery-bolt'], 0, 9, 6, 6),
+    new CapacityUpgrade(2, 2003, 'Temperature Controller', 6000, ['fas', 'battery-bolt'], 0, 10, 20, 20),
+    new CapacityUpgrade(2, 2004, 'Ion Controller', 18000, ['fas', 'battery-bolt'], 0, 11, 65, 65),
 
-    new HullUpgrade(3, 3001, 'hull upg 1', 100, 20),
-    new HullUpgrade(3, 3002, 'hull upg 2', 1250, 60),
-    new HullUpgrade(3, 3003, 'hull upg 3', 6000, 200),
-    new HullUpgrade(3, 3004, 'hull upg 4', 18000, 650)
+    new HullUpgrade(3, 3001, 'Reinforced H-Beams', 100, ['fas', 'rocket'], 0, 20),
+    new HullUpgrade(3, 3002, 'Double Layer Glass', 1250, ['fas', 'rocket'], 0, 60),
+    new HullUpgrade(3, 3003, 'Shielding', 6000, ['fas', 'rocket'], 0, 200),
+    new HullUpgrade(3, 3004, 'Super Thin Walls', 18000, ['fas', 'rocket'], 0, 650)
   ]
+
 }
 
 var upCost = function (upg) {
@@ -91,7 +95,9 @@ const actions = {
 const getters = {
   generatorUpgrades: state => state.upgrades.filter((upg) => upg.category === 1),
   storageUpgrades: state => state.upgrades.filter((upg) => upg.category === 2),
-  hullUpgrades: state => state.upgrades.filter((upg) => upg.category === 3)
+  hullUpgrades: state => state.upgrades.filter((upg) => upg.category === 3),
+  upgrades: state => state.upgrades,
+  manufacturers: state => state.manufacturers
 }
 
 export default {
